@@ -5,7 +5,7 @@
 1. Make sure you have NodeJS installed on your system. The recommended version is the current LTS (22) but newer ones should work too.
 2. Make sure you have the Yarn package manager installed: `npm install --global yarn`
 3. You can now navigate to the root of the project and install the dependencies using `yarn install`
-4. You're ready to go! Simply run `yarn dev` and browse https://localhost:4321
+4. You're ready to go! Simply run `yarn dev` and browse http://localhost:4321
 
 When developing in dev mode, HMR (Hot Module Reloading) will be enabled and allows you to see all of your changes INSTANTLY when you save any file.
 
