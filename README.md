@@ -1,46 +1,27 @@
-# Astro Starter Kit: Basics
+# GT:NH Website
 
-```sh
-yarn create astro@latest -- --template basics
-```
+## 🚀 Getting started
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+1. Make sure you have NodeJS installed on your system. The recommended version is the current LTS (22) but newer ones should work too.
+2. Make sure you have the Yarn package manager installed: `npm install --global yarn`
+3. You can now navigate to the root of the project and install the dependencies using `yarn install`
+4. You're ready to go! Simply run `yarn dev` and browse https://localhost:4321
 
-## 🚀 Project Structure
+When developing in dev mode, HMR (Hot Module Reloading) will be enabled and allows you to see all of your changes INSTANTLY when you save any file.
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
-
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
-
-## 🧞 Commands
+## 🧞 All Commands
 
 All commands are run from the root of the project, from a terminal:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `yarn install`             | Installs dependencies                            |
+| Command                | Action                                           |
+| :--------------------- | :----------------------------------------------- |
+| `yarn install`         | Installs dependencies                            |
 | `yarn dev`             | Starts local dev server at `localhost:4321`      |
-| `yarn build`           | Build your production site to `./dist/`          |
-| `yarn preview`         | Preview your build locally, before deploying     |
+| `yarn build`           | Build production site to `./dist/`               |
+| `yarn preview`         | Preview build locally, before deploying          |
 | `yarn astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `yarn astro -- --help` | Get help using the Astro CLI                     |
 
 ## 👀 Want to learn more?
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Feel free to check [Astro's documentation](https://docs.astro.build).
