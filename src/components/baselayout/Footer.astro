@@ -38,12 +38,12 @@ const footerSections = [
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
       <!-- Logo and Description -->
       <div class="lg:col-span-3">
-        <div class="flex items-center space-x-2 mb-4">
+        <div class="flex items-center space-x-2 mb-2 sm:mb-4">
           <LogoNhWhite class="h-16 w-16 flex-shrink-0" />
           <span class="text-xl font-audiowide">New Horizons</span>
         </div>
-        <p class="text-gray-500 text-lg">Powered by {Astro.generator}</p>
-        <p class="text-gray-500 text-lg">
+        <p class="text-gray-500 text-md sm:text-lg">Powered by {Astro.generator}</p>
+        <p class="text-gray-500 text-md sm:text-lg">
           Open source, <Link href="https://github.com/GTNewHorizons/GTNewHorizons.github.io" blank>fork me!</Link>
         </p>
       </div>
@@ -52,13 +52,13 @@ const footerSections = [
       {
         footerSections.map((section) => (
           <div class="lg:col-span-1">
-            <h3 class="text-2xl font-semibold mb-4">{section.title}</h3>
+            <h3 class="text-xl sm:text-2xl font-semibold mb-2 sm:mb-4">{section.title}</h3>
             <ul class="space-y-2">
               {section.links.map((link) => (
                 <li>
                   <Link
                     href={link.href}
-                    class="text-gray-400 hover:text-white transition-colors duration-200 text-xl"
+                    class="text-gray-400 hover:text-white transition-colors duration-200 text-lg sm:text-xl"
                     blank={link.external}
                   >
                     {link.name}
