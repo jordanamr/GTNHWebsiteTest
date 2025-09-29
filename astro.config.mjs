@@ -7,8 +7,7 @@ import icon from "astro-icon";
 // https://astro.build/config
 export default defineConfig({
   // Final website URL, used for sitemap and other SEO purposes
-  site: "https://jordanamr.github.io",
-  base: "/GTNHWebsiteTest",
+  site: "https://gtnh-test.arenareturns.com",
   output: "static",
   integrations: [icon({
     include: {
