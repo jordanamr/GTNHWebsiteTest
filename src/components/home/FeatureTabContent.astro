@@ -1,0 +1,37 @@
+---
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+
+interface Props {
+  id: string;
+  icon: string;
+  title: string;
+  image: ImageMetadata;
+}
+
+const { id, icon, title, image } = Astro.props;
+---
+
+<div class="tab-content hidden" data-tab={id}>
+  <div class="flex flex-col lg:flex-row h-full gap-0 lg:gap-16 border-gray-500 border-1 rounded-2xl">
+    <!-- Text content -->
+    <div class="w-full lg:w-4/10 p-6 lg:p-18 order-1">
+      <div class="flex items-center gap-4 mb-4">
+        <div class="icon-container w-12 h-12 bg-[#454c54] rounded-xl flex items-center justify-center">
+          <Icon name={icon} class="icon w-10 h-10" color="#547dde" />
+        </div>
+        <h3 class="font-semibold text-3xl">{title}</h3>
+      </div>
+      <div class="text-2xl text-gray-300">
+        <slot />
+      </div>
+    </div>
+
+    <!-- Image content -->
+    <div
+      class="w-full lg:w-6/10 h-64 lg:h-auto lg:my-18 bg-gray-800 border-t-1 lg:border-l-1 lg:border-t-1 lg:border-b-1 border-gray-500 rounded-bl-2xl rounded-br-2xl lg:rounded-bl-2xl lg:rounded-tl-2xl lg:rounded-br-0 overflow-hidden order-2"
+    >
+      <Image src={image} alt={`${title}`} class="w-full h-full object-cover" />
+    </div>
+  </div>
+</div>

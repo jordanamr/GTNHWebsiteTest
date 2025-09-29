@@ -1,0 +1,15 @@
+---
+import { Icon } from "astro-icon/components";
+
+const { icon = "mdi:github", title = "" } = Astro.props;
+---
+
+<div class="w-full min-w-0 h-full p-2">
+  <div class="flex items-center gap-3 mb-2">
+    <div class="icon-container w-12 h-12 bg-[#454c54] rounded-lg flex items-center justify-center">
+      <Icon name={icon} class="icon w-10 h-10" color="#547dde" />
+    </div>
+    <div class="font-semibold text-2xl">{title}</div>
+  </div>
+  <p class="text-gray-300 text-xl leading-relaxed"><slot /></p>
+</div>

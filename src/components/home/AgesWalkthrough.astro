@@ -1,0 +1,281 @@
+---
+import ChallengeCard from "./ChallengeCard.astro";
+import AgePanel from "./AgePanel.astro";
+import AgeBubble from "./AgeBubble.astro";
+import stoneAgeImage from "../../assets/home/ages/stone.png";
+import steamAgeImage from "../../assets/home/ages/steam.png";
+import lvAgeImage from "../../assets/home/ages/lv.png";
+import mvAgeImage from "../../assets/home/ages/mv.png";
+import hvAgeImage from "../../assets/home/ages/hv.png";
+import evAgeImage from "../../assets/home/ages/ev.png";
+import ivAgeImage from "../../assets/home/ages/iv.png";
+import luvAgeImage from "../../assets/home/ages/luv.png";
+import beyondAgeImage from "../../assets/home/ages/beyond.png";
+
+import screenshot1 from "../../assets/home/carousel/1.png";
+import screenshot2 from "../../assets/home/carousel/2.png";
+import screenshot3 from "../../assets/home/carousel/3.png";
+import screenshot4 from "../../assets/home/carousel/4.png";
+import screenshot5 from "../../assets/home/carousel/5.png";
+---
+
+<section class="container mx-auto px-6 py-14">
+  <div class="text-center mb-8">
+    <h2 class="text-3xl lg:text-5xl font-bold mb-2">The Ages Walkthrough</h2>
+    <p class="text-gray-300 text-xl lg:text-2xl">
+      Here is how hundreds of mods intertwine to create a directed, deliberate journey
+    </p>
+  </div>
+
+  <div class="relative mt-10 overflow-x-auto snap-x snap-mandatory pb-4" id="ages-track" data-active="stone">
+    <div class="absolute left-0 right-0 h-[14px] rounded-full bg-[#22272c] pointer-events-none z-0" id="ages-base">
+    </div>
+    <div class="absolute left-0 h-[14px] rounded-full bg-[#547dde] pointer-events-none z-0" id="ages-progress"></div>
+    <ul class="relative z-10 flex flex-nowrap items-start gap-6 w-max md:w-full md:justify-between md:gap-2 px-2">
+      <AgeBubble age="stone" label="Stone Age" image={stoneAgeImage} selected />
+      <AgeBubble age="steam" label="Steam Age" image={steamAgeImage} />
+      <AgeBubble age="lv" label="Low Voltage" image={lvAgeImage} />
+      <AgeBubble age="mv" label="Medium Voltage" image={mvAgeImage} />
+      <AgeBubble age="hv" label="High Voltage" image={hvAgeImage} />
+      <AgeBubble age="ev" label="Extreme Voltage" image={evAgeImage} />
+      <AgeBubble age="iv" label="Insane Voltage" image={ivAgeImage} />
+      <AgeBubble age="luv" label="Ludicrous Voltage" image={luvAgeImage} />
+      <AgeBubble age="beyond" label="...and beyond!" image={beyondAgeImage} />
+    </ul>
+  </div>
+
+  <AgePanel id="panel-stone" title="Stone Age" quests={40} hours={60} image={screenshot1} caption="Stone">
+    <div slot="lead">
+      <p class="text-gray-300 mb-4 text-xl lg:text-2xl">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer volutpat mauris a sem feugiat, ac efficitur
+        sapien rhoncus.
+      </p>
+    </div>
+    <div slot="more">
+      <p class="text-gray-300 mb-8 text-xl lg:text-2xl">
+        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer ut
+        vestibulum justo.
+      </p>
+    </div>
+    <ChallengeCard slot="challenges" icon="mdi:github" title="Mining">Lorem ipsum dolor sit amet.</ChallengeCard>
+    <ChallengeCard slot="challenges" icon="mdi:github" title="Survival">Consectetur adipiscing elit.</ChallengeCard>
+  </AgePanel>
+
+  <AgePanel id="panel-steam" title="Steam Age" quests={65} hours={120} image={screenshot2} caption="Steam">
+    <div slot="lead">
+      <p class="text-gray-300 mb-4 text-xl lg:text-2xl">
+        Lorem ipsum dolor sit amet, consectetur. Integer id velit lacinia, porta nibh a, pulvinar nisl.
+      </p>
+    </div>
+    <div slot="more">
+      <p class="text-gray-300 mb-8 text-xl lg:text-2xl">
+        Duis luctus, augue et iaculis mollis, sem nisl aliquet purus, ut faucibus nibh urna non risus.
+      </p>
+    </div>
+    <ChallengeCard slot="challenges" icon="mdi:github" title="Boilers">Lorem ipsum dolor sit amet.</ChallengeCard>
+    <ChallengeCard slot="challenges" icon="mdi:github" title="Pipes">Consectetur adipiscing elit.</ChallengeCard>
+  </AgePanel>
+
+  <AgePanel id="panel-lv" title="Low Voltage (LV)" quests={100} hours={220} image={screenshot3} caption="LV">
+    <div slot="lead">
+      <p class="text-gray-300 mb-4 text-xl lg:text-2xl">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse non sapien id risus faucibus consequat.
+      </p>
+    </div>
+    <div slot="more">
+      <p class="text-gray-300 mb-8 text-xl lg:text-2xl">
+        Ut congue, nisi in blandit tempus, ex ex volutpat dui, vitae dictum turpis est nec dui.
+      </p>
+    </div>
+    <ChallengeCard slot="challenges" icon="mdi:github" title="Power">Lorem ipsum dolor sit amet.</ChallengeCard>
+    <ChallengeCard slot="challenges" icon="mdi:github" title="Automation">Consectetur adipiscing elit.</ChallengeCard>
+  </AgePanel>
+
+  <AgePanel id="panel-mv" title="Medium Voltage (MV)" quests={146} hours={500} image={screenshot4} caption="MV" active>
+    <div slot="lead">
+      <p class="text-gray-300 mb-4 text-xl lg:text-2xl">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer volutpat, velit in hendrerit consectetur,
+        mauris purus luctus ipsum.
+      </p>
+    </div>
+    <div slot="more">
+      <p class="text-gray-300 mb-8 text-xl lg:text-2xl">
+        Mauris id neque at lorem sagittis dictum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+        posuere cubilia curae.
+      </p>
+    </div>
+    <ChallengeCard slot="challenges" icon="mdi:github" title="Energy">Lorem ipsum dolor sit amet.</ChallengeCard>
+    <ChallengeCard slot="challenges" icon="mdi:github" title="Chemistry">Consectetur adipiscing elit.</ChallengeCard>
+  </AgePanel>
+
+  <AgePanel id="panel-hv" title="High Voltage (HV)" quests={160} hours={650} image={screenshot5} caption="HV">
+    <div slot="lead">
+      <p class="text-gray-300 mb-4 text-xl lg:text-2xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+    <div slot="more">
+      <p class="text-gray-300 mb-8 text-xl lg:text-2xl">
+        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+      </p>
+    </div>
+    <ChallengeCard slot="challenges" icon="mdi:github" title="Safety">Lorem ipsum dolor sit amet.</ChallengeCard>
+    <ChallengeCard slot="challenges" icon="mdi:github" title="Factories">Consectetur adipiscing elit.</ChallengeCard>
+  </AgePanel>
+
+  <AgePanel id="panel-ev" title="Extreme Voltage (EV)" quests={180} hours={800} image={screenshot1} caption="EV">
+    <div slot="lead">
+      <p class="text-gray-300 mb-4 text-xl lg:text-2xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+    <div slot="more">
+      <p class="text-gray-300 mb-8 text-xl lg:text-2xl">Integer ac urna lacinia, gravida justo quis, iaculis nibh.</p>
+    </div>
+    <ChallengeCard slot="challenges" icon="mdi:github" title="Storage">Lorem ipsum dolor sit amet.</ChallengeCard>
+    <ChallengeCard slot="challenges" icon="mdi:github" title="Robotics">Consectetur adipiscing elit.</ChallengeCard>
+  </AgePanel>
+
+  <AgePanel id="panel-iv" title="Insane Voltage (IV)" quests={200} hours={950} image={screenshot2} caption="IV">
+    <div slot="lead">
+      <p class="text-gray-300 mb-4 text-xl lg:text-2xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+    <div slot="more">
+      <p class="text-gray-300 mb-8 text-xl lg:text-2xl">
+        Vestibulum ante ipsum primis in faucibus orci luctus et ultrices.
+      </p>
+    </div>
+    <ChallengeCard slot="challenges" icon="mdi:github" title="Distribution">Lorem ipsum dolor sit amet.</ChallengeCard>
+    <ChallengeCard slot="challenges" icon="mdi:github" title="Insulation">Consectetur adipiscing elit.</ChallengeCard>
+  </AgePanel>
+
+  <AgePanel id="panel-luv" title="Ludicrous Voltage (LuV)" quests={220} hours={1100} image={screenshot3} caption="LuV">
+    <div slot="lead">
+      <p class="text-gray-300 mb-4 text-xl lg:text-2xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+    <div slot="more">
+      <p class="text-gray-300 mb-8 text-xl lg:text-2xl">Integer ac urna lacinia, gravida justo quis, iaculis nibh.</p>
+    </div>
+    <ChallengeCard slot="challenges" icon="mdi:github" title="Quantum">Lorem ipsum dolor sit amet.</ChallengeCard>
+    <ChallengeCard slot="challenges" icon="mdi:github" title="Grid">Consectetur adipiscing elit.</ChallengeCard>
+  </AgePanel>
+
+  <AgePanel id="panel-beyond" title="...and beyond!" quests={240} hours={1300} image={screenshot4} caption="Beyond">
+    <div slot="lead">
+      <p class="text-gray-300 mb-4 text-xl lg:text-2xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+    <div slot="more">
+      <p class="text-gray-300 mb-8 text-xl lg:text-2xl">
+        Vestibulum ante ipsum primis in faucibus orci luctus et ultrices.
+      </p>
+    </div>
+    <ChallengeCard slot="challenges" icon="mdi:github" title="Space">Lorem ipsum dolor sit amet.</ChallengeCard>
+    <ChallengeCard slot="challenges" icon="mdi:github" title="Exotic">Consectetur adipiscing elit.</ChallengeCard>
+  </AgePanel>
+</section>
+
+<script is:inline>
+  (function () {
+    const track = document.getElementById("ages-track");
+    const base = document.getElementById("ages-base");
+    const progress = document.getElementById("ages-progress");
+    const bubbles = Array.from(document.querySelectorAll(".age-bubble"));
+    const panels = {
+      stone: document.getElementById("panel-stone"),
+      steam: document.getElementById("panel-steam"),
+      lv: document.getElementById("panel-lv"),
+      mv: document.getElementById("panel-mv"),
+      hv: document.getElementById("panel-hv"),
+      ev: document.getElementById("panel-ev"),
+      iv: document.getElementById("panel-iv"),
+      luv: document.getElementById("panel-luv"),
+      beyond: document.getElementById("panel-beyond"),
+    };
+
+    let centers = [];
+
+    function indexOfAge(key) {
+      return bubbles.findIndex((b) => b.dataset.age === key);
+    }
+
+    function computeLayout() {
+      const containerRect = track.getBoundingClientRect();
+      centers = bubbles.map((b) => {
+        const el = b.querySelector(".bubble");
+        const r = el.getBoundingClientRect();
+        return r.left - containerRect.left + r.width / 2;
+      });
+
+      if (centers.length < 2) return;
+
+      const first = centers[0];
+      const last = centers[centers.length - 1];
+
+      base.style.right = "auto";
+      base.style.left = first + "px";
+      base.style.width = Math.max(0, last - first) + "px";
+
+      progress.style.right = "auto";
+      progress.style.left = first + "px";
+
+      const firstBubble = bubbles[0].querySelector(".bubble");
+      const bubbleRect = firstBubble.getBoundingClientRect();
+      const centerY = bubbleRect.top + bubbleRect.height / 2 - containerRect.top;
+      base.style.top = centerY - base.offsetHeight / 2 + "px";
+      progress.style.top = centerY - progress.offsetHeight / 2 + "px";
+
+      const activeKey = track.dataset.active || "stone";
+      const idx = indexOfAge(activeKey);
+      updateProgressToIndex(idx);
+    }
+
+    function updateProgressToIndex(index) {
+      if (!centers.length) return;
+      const first = centers[0];
+      const last = centers[centers.length - 1];
+      const current = centers[Math.max(0, Math.min(index, centers.length - 1))];
+      const width = Math.max(0, Math.min(current - first, last - first));
+      progress.style.width = width + "px";
+    }
+
+    function setActive(key) {
+      track.dataset.active = key;
+      const currentIndex = indexOfAge(key);
+
+      bubbles.forEach((b, i) => {
+        const bubble = b.querySelector(".bubble");
+        const label = b.querySelector(".label");
+        const isCurrent = i === currentIndex;
+        if (!bubble) return;
+        if (i <= currentIndex) {
+          bubble.classList.add("bg-[#547dde]", "border-[#547dde]", "border-0", "shadow-none");
+          bubble.classList.remove("bg-[#13171b]", "border-[#2a2f37]", "bg-[#1a1f26]", "border-2", "shadow-sm");
+        } else {
+          bubble.classList.add("bg-[#13171b]", "border-[#2a2f37]", "border-2", "shadow-sm");
+          bubble.classList.remove("bg-[#547dde]", "border-[#547dde]", "bg-[#1a1f26]", "border-0", "shadow-none");
+        }
+        if (label) {
+          if (isCurrent) label.classList.add("font-semibold");
+          else label.classList.remove("font-semibold");
+        }
+      });
+
+      Object.entries(panels).forEach(([k, el]) => {
+        if (!el) return;
+        if (k === key) el.classList.remove("hidden");
+        else el.classList.add("hidden");
+      });
+
+      if (currentIndex >= 0) updateProgressToIndex(currentIndex);
+    }
+
+    function initialize() {
+      bubbles.forEach((b) => b.addEventListener("click", () => setActive(b.dataset.age)));
+      computeLayout();
+      setActive(track.dataset.active || "stone");
+      window.addEventListener("resize", computeLayout);
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initialize);
+    } else {
+      initialize();
+    }
+  })();
+</script>

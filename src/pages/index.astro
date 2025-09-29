@@ -1,0 +1,59 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { Icon } from "astro-icon/components";
+import Logo from "../assets/logo.svg";
+import FeatureTabs from "../components/home/FeatureTabs.astro";
+import Carousel from "../components/home/Carousel.astro";
+import CallToAction from "../components/home/CallToAction.astro";
+import AgesWalkthrough from "../components/home/AgesWalkthrough.astro";
+---
+
+<BaseLayout title="Home">
+  <div class="bg-custom-dark text-white">
+    <!-- Hero Section -->
+    <section class="container mx-auto px-8 md:px-16 lg:px-22 pt-4 md:pt-8 lg:pt-16">
+      <div class="flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-4 md:gap-6 lg:gap-12">
+        <!-- Left Content -->
+        <div class="lg:flex-1 text-center lg:text-left order-2 lg:order-1">
+          <h1 class="text-4xl lg:text-6xl font-bold mb-2">Welcome to</h1>
+          <h2 class="font-audiowide text-3xl lg:text-5xl text-custom-blue mb-6">GregTech: New Horizons</h2>
+          <p class="text-2xl text-gray-300 mb-8 max-w-lg mx-auto lg:mx-0">
+            A hardcore, content rich and meticulously crafted technical modpack
+          </p>
+          <a
+            href="/downloads"
+            class="inline-flex gap-2 items-center bg-[#557dde] hover:bg-[#558ede] text-white px-4 py-2 rounded-xl text-2xl transition-colors duration-200"
+          >
+            <Icon name="material-symbols:download-rounded" width={48} height={48} />
+            Downloads
+          </a>
+        </div>
+
+        <!-- Right Content - Logo -->
+        <div class="flex justify-center lg:justify-end order-1 lg:order-2 lg:flex-1">
+          <Logo class="w-72 h-56 sm:w-80 sm:h-64 md:w-96 md:h-72 lg:w-128 lg:h-auto object-contain" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Images Section -->
+    <section class="container mx-auto py-8">
+      <Carousel />
+    </section>
+
+    <!-- Features Section -->
+    <section class="container mx-auto">
+      <FeatureTabs />
+    </section>
+
+    <!-- Ages walkthrough Section -->
+    <section class="container mx-auto">
+      <AgesWalkthrough />
+    </section>
+
+    <!-- Call to action section -->
+    <section class="container mx-auto py-8">
+      <CallToAction />
+    </section>
+  </div>
+</BaseLayout>

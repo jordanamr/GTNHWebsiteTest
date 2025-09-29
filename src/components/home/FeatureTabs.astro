@@ -1,0 +1,135 @@
+---
+import { Icon } from "astro-icon/components";
+import FeatureTabButton from "./FeatureTabButton.astro";
+import FeatureTabContent from "./FeatureTabContent.astro";
+
+import imageScale from "../../assets/home/features/scale.png";
+import imageTechnical from "../../assets/home/features/technical.png";
+import imagePlaceholder from "../../assets/home/features/1280x720.png";
+---
+
+<section class="w-full text-white px-4 py-8">
+  <!-- Top clickable boxes -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-8" id="tab-buttons">
+    <FeatureTabButton
+      id="scale"
+      icon="tabler:scale-outline"
+      title="The sheer scale"
+      subtitle="GTNH includes hundreds of mods with endless possibilities"
+    />
+    <FeatureTabButton
+      id="journey"
+      icon="tabler:jump-rope"
+      title="Curated journey"
+      subtitle="Hundreds of mods, each a piece of a seamless puzzle"
+    />
+    <FeatureTabButton
+      id="refinement"
+      icon="tabler:color-picker"
+      title="Constant refinement"
+      subtitle="More than a decade of ongoing development by the community"
+    />
+    <FeatureTabButton
+      id="technical"
+      icon="tabler:trophy"
+      title="Technical Excellence"
+      subtitle="From custom recipes to custom mods, purpose-built for GTNH"
+    />
+    <FeatureTabButton
+      id="community"
+      icon="tabler:brand-discord"
+      title="Vibrant Community"
+      subtitle="An active player base fostering collaboration and support"
+    />
+  </div>
+
+  <!-- Big box below with all content -->
+  <div class="bg-[#2e3338] rounded-2xl prose prose-invert max-w-none">
+    <FeatureTabContent id="scale" icon="tabler:scale-outline" title="The sheer scale" image={imageScale}>
+      <p>
+        [WIP TEXT!!!!!] GTNH includes hundreds of mods with endless possibilities. Explore vast combinations of content
+        and gameplay.
+      </p>
+    </FeatureTabContent>
+
+    <FeatureTabContent id="journey" icon="tabler:jump-rope" title="Curated journey" image={imagePlaceholder}>
+      <p>[WIP TEXT!!!!!] Hundreds of mods, each carefully curated to create a seamless gameplay journey.</p>
+    </FeatureTabContent>
+
+    <FeatureTabContent id="refinement" icon="tabler:color-picker" title="Constant refinement" image={imagePlaceholder}>
+      <p>[WIP TEXT!!!!!] Over a decade of community-driven improvements keeps the experience fresh.</p>
+    </FeatureTabContent>
+
+    <FeatureTabContent id="technical" icon="tabler:trophy" title="Technical Excellence" image={imageTechnical}>
+      <p>
+        GTNH isn't a bunch of JARs dumped into /mods, it's a grand project with deliberate vision that doesn't limit
+        itself to off-the-shelf solutions.
+      </p>
+      <br />
+      <p>We develop and maintain:</p>
+      <ul class="list-disc ml-10">
+        <li>Dozens of forks of popular mods</li>
+        <li>Many exclusive mods, made for GTNH from the ground up</li>
+        <li>Resource packs, shader packs, localizations and more!</li>
+      </ul>
+      <div class="mt-8">
+        <a
+          href="https://github.com/GTNewHorizons"
+          target="_blank"
+          class="inline-flex items-center gap-3 bg-white text-black px-6 py-3 rounded-2xl text-2xl font-semibold hover:bg-gray-300 transition-colors"
+        >
+          <Icon name="mdi:github" class="w-10 h-10" />
+          Our Github
+        </a>
+      </div>
+    </FeatureTabContent>
+
+    <FeatureTabContent id="community" icon="tabler:brand-discord" title="Vibrant Community" image={imagePlaceholder}>
+      <p>[WIP TEXT!!!!!] An active, friendly player base fosters collaboration and support.</p>
+    </FeatureTabContent>
+  </div>
+</section>
+
+<script is:inline>
+  (function () {
+    const buttons = document.querySelectorAll(".tab-btn");
+    const contentPanels = document.querySelectorAll(".tab-content");
+
+    function setActive(id) {
+      buttons.forEach((btn) => {
+        const iconContainer = btn.querySelector(".icon-container");
+        const icon = btn.querySelector(".icon");
+
+        if (btn.dataset.tab === id) {
+          btn.classList.remove("bg-[#2e3338]", "hover:bg-gray-700");
+          btn.classList.add("bg-[#547dde]");
+          // Change icon container background and icon color when selected
+          iconContainer.style.backgroundColor = "#d4def7";
+          icon.style.color = "#547dde";
+        } else {
+          btn.classList.remove("bg-[#547dde]");
+          btn.classList.add("bg-[#2e3338]", "hover:bg-gray-700");
+          // Reset icon container and icon color when not selected
+          iconContainer.style.backgroundColor = "";
+          icon.style.color = "#547dde";
+        }
+      });
+      contentPanels.forEach((panel) => {
+        panel.classList.toggle("hidden", panel.dataset.tab !== id);
+      });
+    }
+
+    function init() {
+      setActive("technical");
+      buttons.forEach((btn) => {
+        btn.addEventListener("click", () => setActive(btn.dataset.tab));
+      });
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", init);
+    } else {
+      init();
+    }
+  })();
+</script>

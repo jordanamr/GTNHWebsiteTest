@@ -1,0 +1,24 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  id: string;
+  icon: string;
+  title: string;
+  subtitle: string;
+}
+
+const { id, icon, title, subtitle } = Astro.props;
+---
+
+<button
+  type="button"
+  class={`tab-btn rounded-3xl border-gray-500 border-1 p-6 text-left flex flex-col gap-2 cursor-pointer transition-colors`}
+  data-tab={id}
+>
+  <div class="icon-container w-12 h-12 bg-[#454c54] rounded-xl flex items-center justify-center mb-4">
+    <Icon name={icon} class="icon w-10 h-10" color="#547dde" />
+  </div>
+  <h3 class="font-semibold text-xl">{title}</h3>
+  <p class="text-xl text-gray-300">{subtitle}</p>
+</button>

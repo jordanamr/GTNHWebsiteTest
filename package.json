@@ -1,0 +1,25 @@
+{
+  "name": "gtnh-website",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "licence": "LGPL-3.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@fontsource-variable/space-grotesk": "5.2.10",
+    "@fontsource/audiowide": "5.2.7",
+    "@iconify-json/ic": "1.2.4",
+    "@iconify-json/material-symbols": "1.2.39",
+    "@iconify-json/mdi": "1.2.3",
+    "@iconify-json/tabler": "1.2.23",
+    "@tailwindcss/vite": "4.1.13",
+    "astro": "5.14.0",
+    "astro-icon": "1.1.5",
+    "tailwindcss": "4.1.13"
+  }
+}

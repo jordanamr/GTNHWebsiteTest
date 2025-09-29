@@ -1,0 +1,25 @@
+---
+export interface Props {
+  title: string;
+  author: string;
+}
+
+const { title, author } = Astro.props;
+---
+
+<div class="carousel-slide w-full flex-shrink-0">
+  <!-- Image container with double border -->
+  <div class="p-1 border border-gray-500 rounded-3xl mb-4">
+    <div class="border border-white rounded-3xl overflow-hidden">
+      <div class="aspect-video">
+        <slot />
+      </div>
+    </div>
+  </div>
+
+  <!-- Description below the image -->
+  <div class="flex items-center justify-center text-center gap-2 text-2xl">
+    <p class="text-white font-bold">{title}</p>
+    <p class="text-gray-300">by {author}</p>
+  </div>
+</div>
