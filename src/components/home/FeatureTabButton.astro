@@ -6,19 +6,37 @@ interface Props {
   icon: string;
   title: string;
   subtitle: string;
+  as?: "button" | "div";
 }
 
-const { id, icon, title, subtitle } = Astro.props;
+const { id, icon, title, subtitle, as = "button" } = Astro.props;
 ---
 
-<button
-  type="button"
-  class={`tab-btn rounded-3xl border-gray-500 border-1 p-6 text-left flex flex-col gap-2 cursor-pointer transition-colors`}
-  data-tab={id}
->
-  <div class="icon-container w-12 h-12 bg-[#454c54] rounded-xl flex items-center justify-center mb-4">
-    <Icon name={icon} class="icon w-10 h-10" color="#547dde" />
-  </div>
-  <h3 class="font-semibold text-xl">{title}</h3>
-  <p class="text-xl text-gray-300">{subtitle}</p>
-</button>
+{
+  as === "button" ? (
+    <button
+      type="button"
+      class={`tab-btn rounded-3xl border-gray-500 border-1 p-6 text-left flex flex-col gap-2 cursor-pointer transition-colors`}
+      data-tab={id}
+    >
+      <div class="icon-container w-10 sm:w-12 h-10 sm:h-12 bg-[#454c54] rounded-xl flex items-center justify-center sm:mb-4">
+        <Icon name={icon} class="icon w-8 sm:w-10 h-8 sm:h-10" color="#547dde" />
+      </div>
+      <h3 class="font-semibold text-lg sm:text-xl">{title}</h3>
+      <p class="text-md sm:text-lg md:text-xl text-gray-300">{subtitle}</p>
+    </button>
+  ) : (
+    <div
+      role="button"
+      tabindex="0"
+      class={`tab-btn rounded-3xl border-gray-500 border-1 p-6 text-left flex flex-col gap-2 cursor-pointer transition-colors`}
+      data-tab={id}
+    >
+      <div class="icon-container w-10 sm:w-12 h-10 sm:h-12 bg-[#454c54] rounded-xl flex items-center justify-center sm:mb-4">
+        <Icon name={icon} class="icon w-8 sm:w-10 h-8 sm:h-10" color="#547dde" />
+      </div>
+      <h3 class="font-semibold text-lg sm:text-xl">{title}</h3>
+      <p class="text-md sm:text-lg md:text-xl text-gray-300">{subtitle}</p>
+    </div>
+  )
+}

@@ -9,8 +9,8 @@ import imagePlaceholder from "../../assets/home/features/1280x720.png";
 ---
 
 <section class="w-full text-white px-4 py-8">
-  <!-- Top clickable boxes -->
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-8" id="tab-buttons">
+  <!-- Top clickable boxes (desktop/tablet) -->
+  <div class="hidden sm:grid sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-8" id="tab-buttons-desktop">
     <FeatureTabButton
       id="scale"
       icon="tabler:scale-outline"
@@ -43,8 +43,135 @@ import imagePlaceholder from "../../assets/home/features/1280x720.png";
     />
   </div>
 
-  <!-- Big box below with all content -->
-  <div class="bg-[#2e3338] rounded-2xl prose prose-invert max-w-none">
+  <!-- Mobile disclosures: each button reveals its content directly below -->
+  <div class="flex flex-col gap-4 mb-8 sm:hidden" id="tab-disclosures-mobile">
+    <details class="disclosure flex flex-col gap-3" open>
+      <summary class="list-none">
+        <FeatureTabButton
+          as="div"
+          id="scale"
+          icon="tabler:scale-outline"
+          title="The sheer scale"
+          subtitle="GTNH includes hundreds of mods with endless possibilities"
+        />
+      </summary>
+      <FeatureTabContent
+        forceVisible={true}
+        id="scale"
+        icon="tabler:scale-outline"
+        title="The sheer scale"
+        image={imageScale}
+      >
+        <p>
+          [WIP TEXT!!!!!] GTNH includes hundreds of mods with endless possibilities. Explore vast combinations of
+          content and gameplay.
+        </p>
+      </FeatureTabContent>
+    </details>
+    <details class="disclosure flex flex-col gap-3">
+      <summary class="list-none">
+        <FeatureTabButton
+          as="div"
+          id="journey"
+          icon="tabler:jump-rope"
+          title="Curated journey"
+          subtitle="Hundreds of mods, each a piece of a seamless puzzle"
+        />
+      </summary>
+      <FeatureTabContent
+        forceVisible={true}
+        id="journey"
+        icon="tabler:jump-rope"
+        title="Curated journey"
+        image={imagePlaceholder}
+      >
+        <p>[WIP TEXT!!!!!] Hundreds of mods, each carefully curated to create a seamless gameplay journey.</p>
+      </FeatureTabContent>
+    </details>
+    <details class="disclosure flex flex-col gap-3">
+      <summary class="list-none">
+        <FeatureTabButton
+          as="div"
+          id="refinement"
+          icon="tabler:color-picker"
+          title="Constant refinement"
+          subtitle="More than a decade of ongoing development by the community"
+        />
+      </summary>
+      <FeatureTabContent
+        forceVisible={true}
+        id="refinement"
+        icon="tabler:color-picker"
+        title="Constant refinement"
+        image={imagePlaceholder}
+      >
+        <p>[WIP TEXT!!!!!] Over a decade of community-driven improvements keeps the experience fresh.</p>
+      </FeatureTabContent>
+    </details>
+    <details class="disclosure flex flex-col gap-3">
+      <summary class="list-none">
+        <FeatureTabButton
+          as="div"
+          id="technical"
+          icon="tabler:trophy"
+          title="Technical Excellence"
+          subtitle="From custom recipes to custom mods, purpose-built for GTNH"
+        />
+      </summary>
+      <FeatureTabContent
+        forceVisible={true}
+        id="technical"
+        icon="tabler:trophy"
+        title="Technical Excellence"
+        image={imageTechnical}
+      >
+        <p>
+          GTNH isn't a bunch of JARs dumped into /mods, it's a grand project with deliberate vision that doesn't limit
+          itself to off-the-shelf solutions.
+        </p>
+        <br />
+        <p>We develop and maintain:</p>
+        <ul class="list-disc ml-10">
+          <li>Dozens of forks of popular mods</li>
+          <li>Many exclusive mods, made for GTNH from the ground up</li>
+          <li>Resource packs, shader packs, localizations and more!</li>
+        </ul>
+        <div class="mt-8">
+          <a
+            href="https://github.com/GTNewHorizons"
+            target="_blank"
+            class="inline-flex items-center gap-3 bg-white text-black px-6 py-3 rounded-2xl text-2xl font-semibold hover:bg-gray-300 transition-colors"
+          >
+            <Icon name="mdi:github" class="w-10 h-10" />
+            Our Github
+          </a>
+        </div>
+      </FeatureTabContent>
+    </details>
+    <details class="disclosure flex flex-col gap-3">
+      <summary class="list-none">
+        <FeatureTabButton
+          as="div"
+          id="community"
+          icon="tabler:brand-discord"
+          title="Vibrant Community"
+          subtitle="An active player base fostering collaboration and support"
+        />
+      </summary>
+      <FeatureTabContent
+        forceVisible={true}
+        id="community"
+        icon="tabler:brand-discord"
+        title="Vibrant Community"
+        image={imagePlaceholder}
+      >
+        <p>[WIP TEXT!!!!!] An active, friendly player base fosters collaboration and support.</p>
+      </FeatureTabContent>
+    </details>
+  </div>
+
+  <!-- Big box below with all content (desktop only) -->
+  <div class="bg-[#2e3338] rounded-2xl prose prose-invert max-w-none hidden sm:block" id="tab-content-desktop">
     <FeatureTabContent id="scale" icon="tabler:scale-outline" title="The sheer scale" image={imageScale}>
       <p>
         [WIP TEXT!!!!!] GTNH includes hundreds of mods with endless possibilities. Explore vast combinations of content
@@ -92,44 +219,63 @@ import imagePlaceholder from "../../assets/home/features/1280x720.png";
 
 <script is:inline>
   (function () {
-    const buttons = document.querySelectorAll(".tab-btn");
-    const contentPanels = document.querySelectorAll(".tab-content");
+    // Desktop: simple CSS-only hidden panels toggled via data-state classes on buttons
+    const desktopButtons = document.querySelectorAll("#tab-buttons-desktop .tab-btn");
+    const desktopPanels = document.querySelectorAll("#tab-content-desktop .tab-content");
 
-    function setActive(id) {
-      buttons.forEach((btn) => {
+    function activateDesktop(id) {
+      desktopButtons.forEach((btn) => {
+        const isActive = btn.dataset.tab === id;
         const iconContainer = btn.querySelector(".icon-container");
         const icon = btn.querySelector(".icon");
-
-        if (btn.dataset.tab === id) {
-          btn.classList.remove("bg-[#2e3338]", "hover:bg-gray-700");
-          btn.classList.add("bg-[#547dde]");
-          // Change icon container background and icon color when selected
-          iconContainer.style.backgroundColor = "#d4def7";
-          icon.style.color = "#547dde";
-        } else {
-          btn.classList.remove("bg-[#547dde]");
-          btn.classList.add("bg-[#2e3338]", "hover:bg-gray-700");
-          // Reset icon container and icon color when not selected
-          iconContainer.style.backgroundColor = "";
-          icon.style.color = "#547dde";
-        }
+        btn.classList.toggle("bg-[#547dde]", isActive);
+        btn.classList.toggle("bg-[#2e3338]", !isActive);
+        btn.classList.toggle("hover:bg-gray-700", !isActive);
+        if (iconContainer) iconContainer.style.backgroundColor = isActive ? "#d4def7" : "";
+        if (icon) icon.style.color = isActive ? "#547dde" : "#547dde";
       });
-      contentPanels.forEach((panel) => {
+      desktopPanels.forEach((panel) => {
         panel.classList.toggle("hidden", panel.dataset.tab !== id);
       });
     }
 
-    function init() {
-      setActive("technical");
-      buttons.forEach((btn) => {
-        btn.addEventListener("click", () => setActive(btn.dataset.tab));
+    desktopButtons.forEach((btn) => {
+      btn.addEventListener("click", () => activateDesktop(btn.dataset.tab));
+    });
+    // default selection for desktop
+    activateDesktop("scale");
+
+    // Mobile: ensure only one <details> is open at a time and sync button selected styles
+    const mobileDetails = document.querySelectorAll("#tab-disclosures-mobile details");
+
+    function updateMobileVisuals() {
+      mobileDetails.forEach((wrap) => {
+        const btn = wrap.querySelector(".tab-btn");
+        const iconContainer = btn?.querySelector(".icon-container");
+        const icon = btn?.querySelector(".icon");
+        const isActive = wrap.open;
+        if (btn) {
+          btn.classList.toggle("bg-[#547dde]", isActive);
+          btn.classList.toggle("bg-[#2e3338]", !isActive);
+          btn.classList.toggle("hover:bg-gray-700", !isActive);
+        }
+        if (iconContainer) iconContainer.style.backgroundColor = isActive ? "#d4def7" : "";
+        if (icon) icon.style.color = "#547dde";
       });
     }
 
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", init);
-    } else {
-      init();
-    }
+    mobileDetails.forEach((d) => {
+      d.addEventListener("toggle", () => {
+        if (d.open) {
+          mobileDetails.forEach((other) => {
+            if (other !== d) other.open = false;
+          });
+        }
+        updateMobileVisuals();
+      });
+    });
+
+    // Apply initial visual state (first details is open by markup)
+    updateMobileVisuals();
   })();
 </script>
