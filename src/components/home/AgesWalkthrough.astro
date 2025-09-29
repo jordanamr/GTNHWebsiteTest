@@ -19,9 +19,9 @@ import screenshot4 from "../../assets/home/carousel/4.png";
 import screenshot5 from "../../assets/home/carousel/5.png";
 ---
 
-<section class="container mx-auto px-6 py-14">
+<section class="container mx-auto px-6 sm:py-14">
   <div class="text-center mb-8">
-    <h2 class="text-3xl lg:text-5xl font-bold mb-2">The Ages Walkthrough</h2>
+    <h2 class="text-2xl sm:text-3xl lg:text-5xl font-bold mb-2">The Ages Walkthrough</h2>
     <p class="text-gray-300 text-xl lg:text-2xl">
       Here is how hundreds of mods intertwine to create a directed, deliberate journey
     </p>
@@ -46,13 +46,13 @@ import screenshot5 from "../../assets/home/carousel/5.png";
 
   <AgePanel id="panel-stone" title="Stone Age" quests={40} hours={60} image={screenshot1} caption="Stone">
     <div slot="lead">
-      <p class="text-gray-300 mb-4 text-xl lg:text-2xl">
+      <p class="text-gray-300 mb-4 text-lg sm:text-xl lg:text-2xl">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer volutpat mauris a sem feugiat, ac efficitur
         sapien rhoncus.
       </p>
     </div>
     <div slot="more">
-      <p class="text-gray-300 mb-8 text-xl lg:text-2xl">
+      <p class="text-gray-300 mb-8 text-lg sm:text-xl lg:text-2xl">
         Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer ut
         vestibulum justo.
       </p>
@@ -63,12 +63,12 @@ import screenshot5 from "../../assets/home/carousel/5.png";
 
   <AgePanel id="panel-steam" title="Steam Age" quests={65} hours={120} image={screenshot2} caption="Steam">
     <div slot="lead">
-      <p class="text-gray-300 mb-4 text-xl lg:text-2xl">
+      <p class="text-gray-300 mb-4 text-lg sm:text-xl lg:text-2xl">
         Lorem ipsum dolor sit amet, consectetur. Integer id velit lacinia, porta nibh a, pulvinar nisl.
       </p>
     </div>
     <div slot="more">
-      <p class="text-gray-300 mb-8 text-xl lg:text-2xl">
+      <p class="text-gray-300 mb-8 text-lg sm:text-xl lg:text-2xl">
         Duis luctus, augue et iaculis mollis, sem nisl aliquet purus, ut faucibus nibh urna non risus.
       </p>
     </div>
@@ -78,12 +78,12 @@ import screenshot5 from "../../assets/home/carousel/5.png";
 
   <AgePanel id="panel-lv" title="Low Voltage (LV)" quests={100} hours={220} image={screenshot3} caption="LV">
     <div slot="lead">
-      <p class="text-gray-300 mb-4 text-xl lg:text-2xl">
+      <p class="text-gray-300 mb-4 text-lg sm:text-xl lg:text-2xl">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse non sapien id risus faucibus consequat.
       </p>
     </div>
     <div slot="more">
-      <p class="text-gray-300 mb-8 text-xl lg:text-2xl">
+      <p class="text-gray-300 mb-8 text-lg sm:text-xl lg:text-2xl">
         Ut congue, nisi in blandit tempus, ex ex volutpat dui, vitae dictum turpis est nec dui.
       </p>
     </div>
@@ -93,13 +93,13 @@ import screenshot5 from "../../assets/home/carousel/5.png";
 
   <AgePanel id="panel-mv" title="Medium Voltage (MV)" quests={146} hours={500} image={screenshot4} caption="MV" active>
     <div slot="lead">
-      <p class="text-gray-300 mb-4 text-xl lg:text-2xl">
+      <p class="text-gray-300 mb-4 text-lg sm:text-xl lg:text-2xl">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer volutpat, velit in hendrerit consectetur,
         mauris purus luctus ipsum.
       </p>
     </div>
     <div slot="more">
-      <p class="text-gray-300 mb-8 text-xl lg:text-2xl">
+      <p class="text-gray-300 mb-8 text-lg sm:text-xl lg:text-2xl">
         Mauris id neque at lorem sagittis dictum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
         posuere cubilia curae.
       </p>
@@ -110,10 +110,12 @@ import screenshot5 from "../../assets/home/carousel/5.png";
 
   <AgePanel id="panel-hv" title="High Voltage (HV)" quests={160} hours={650} image={screenshot5} caption="HV">
     <div slot="lead">
-      <p class="text-gray-300 mb-4 text-xl lg:text-2xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <p class="text-gray-300 mb-4 text-lg sm:text-xl lg:text-2xl">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </p>
     </div>
     <div slot="more">
-      <p class="text-gray-300 mb-8 text-xl lg:text-2xl">
+      <p class="text-gray-300 mb-8 text-lg sm:text-xl lg:text-2xl">
         Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
       </p>
     </div>
@@ -123,10 +125,14 @@ import screenshot5 from "../../assets/home/carousel/5.png";
 
   <AgePanel id="panel-ev" title="Extreme Voltage (EV)" quests={180} hours={800} image={screenshot1} caption="EV">
     <div slot="lead">
-      <p class="text-gray-300 mb-4 text-xl lg:text-2xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <p class="text-gray-300 mb-4 text-lg sm:text-xl lg:text-2xl">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </p>
     </div>
     <div slot="more">
-      <p class="text-gray-300 mb-8 text-xl lg:text-2xl">Integer ac urna lacinia, gravida justo quis, iaculis nibh.</p>
+      <p class="text-gray-300 mb-8 text-lg sm:text-xl lg:text-2xl">
+        Integer ac urna lacinia, gravida justo quis, iaculis nibh.
+      </p>
     </div>
     <ChallengeCard slot="challenges" icon="mdi:github" title="Storage">Lorem ipsum dolor sit amet.</ChallengeCard>
     <ChallengeCard slot="challenges" icon="mdi:github" title="Robotics">Consectetur adipiscing elit.</ChallengeCard>
@@ -134,10 +140,12 @@ import screenshot5 from "../../assets/home/carousel/5.png";
 
   <AgePanel id="panel-iv" title="Insane Voltage (IV)" quests={200} hours={950} image={screenshot2} caption="IV">
     <div slot="lead">
-      <p class="text-gray-300 mb-4 text-xl lg:text-2xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <p class="text-gray-300 mb-4 text-lg sm:text-xl lg:text-2xl">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </p>
     </div>
     <div slot="more">
-      <p class="text-gray-300 mb-8 text-xl lg:text-2xl">
+      <p class="text-gray-300 mb-8 text-lg sm:text-xl lg:text-2xl">
         Vestibulum ante ipsum primis in faucibus orci luctus et ultrices.
       </p>
     </div>
@@ -147,10 +155,14 @@ import screenshot5 from "../../assets/home/carousel/5.png";
 
   <AgePanel id="panel-luv" title="Ludicrous Voltage (LuV)" quests={220} hours={1100} image={screenshot3} caption="LuV">
     <div slot="lead">
-      <p class="text-gray-300 mb-4 text-xl lg:text-2xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <p class="text-gray-300 mb-4 text-lg sm:text-xl lg:text-2xl">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </p>
     </div>
     <div slot="more">
-      <p class="text-gray-300 mb-8 text-xl lg:text-2xl">Integer ac urna lacinia, gravida justo quis, iaculis nibh.</p>
+      <p class="text-gray-300 mb-8 text-lg sm:text-xl lg:text-2xl">
+        Integer ac urna lacinia, gravida justo quis, iaculis nibh.
+      </p>
     </div>
     <ChallengeCard slot="challenges" icon="mdi:github" title="Quantum">Lorem ipsum dolor sit amet.</ChallengeCard>
     <ChallengeCard slot="challenges" icon="mdi:github" title="Grid">Consectetur adipiscing elit.</ChallengeCard>
@@ -158,10 +170,12 @@ import screenshot5 from "../../assets/home/carousel/5.png";
 
   <AgePanel id="panel-beyond" title="...and beyond!" quests={240} hours={1300} image={screenshot4} caption="Beyond">
     <div slot="lead">
-      <p class="text-gray-300 mb-4 text-xl lg:text-2xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <p class="text-gray-300 mb-4 text-lg sm:text-xl lg:text-2xl">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </p>
     </div>
     <div slot="more">
-      <p class="text-gray-300 mb-8 text-xl lg:text-2xl">
+      <p class="text-gray-300 mb-8 text-lg sm:text-xl lg:text-2xl">
         Vestibulum ante ipsum primis in faucibus orci luctus et ultrices.
       </p>
     </div>
