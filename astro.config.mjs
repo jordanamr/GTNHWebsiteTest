@@ -16,6 +16,7 @@ export default defineConfig({
       ic: ["baseline-discord"],
       mdi: ["github"],
       "material-symbols": ["download-rounded"],
+      tabler: ["scale-outline", "jump-rope", "color-picker", "trophy", "brand-discord"],
     }
   })],
   vite: {
