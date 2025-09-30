@@ -4,6 +4,11 @@ import DownloadsCard from "../components/downloads/DownloadsCard.astro";
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 
+import technicImage from "../assets/downloads/technic.png";
+import curseforgeImage from "../assets/downloads/curseforge.png";
+import zipImage from "../assets/downloads/zip.png";
+import prismImage from "../assets/downloads/prism.png";
+import serverImage from "../assets/downloads/server.png";
 import placeholderImage from "../assets/home/features/1280x720.png";
 
 const config = {
@@ -73,7 +78,7 @@ const config = {
       >
         <div slot="image">
           <Image
-            src={placeholderImage}
+            src={prismImage}
             alt="MultiMC/Prism screenshot"
             class="w-full h-full object-cover object-left-top block"
             loading="eager"
@@ -108,7 +113,7 @@ const config = {
       >
         <div slot="image">
           <Image
-            src={placeholderImage}
+            src={serverImage}
             alt="Server screenshot"
             class="w-full h-full object-cover object-left-top block"
             loading="eager"
@@ -139,7 +144,7 @@ const config = {
       >
         <div slot="image">
           <Image
-            src={placeholderImage}
+            src={zipImage}
             alt="Client screenshot"
             class="w-full h-full object-cover object-left-top block"
             loading="eager"
@@ -163,7 +168,7 @@ const config = {
       >
         <div slot="image">
           <Image
-            src={placeholderImage}
+            src={technicImage}
             alt="Technic Launcher screenshot"
             class="w-full h-full object-cover object-left-top block"
             loading="eager"
@@ -182,7 +187,7 @@ const config = {
       >
         <div slot="image">
           <Image
-            src={placeholderImage}
+            src={curseforgeImage}
             alt="CurseForge screenshot"
             class="w-full h-full object-cover object-left-top block"
             loading="eager"
