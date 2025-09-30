@@ -97,23 +97,34 @@ const SLIDESHOW_SPEED = 5000;
 </div>
 
 <script is:inline define:vars={{ SLIDESHOW_SPEED }}>
-  let currentSlide = 0;
-  let totalSlides = 0;
   let track = null;
   let container = null;
   let overlay = null;
   let intervalId = null;
   let lastManualAt = 0;
 
+  // Number of real slides (without clones)
+  let realSlides = 0;
+  // Current index in the track including clones (0..realSlides+1 when looping)
+  let currentIndex = 0;
+  let loopEnabled = false;
+  let isAnimating = false;
+
   function initializeSlideshow() {
     track = document.getElementById("carousel-track");
     container = track?.closest(".carousel-container");
     overlay = document.getElementById("carousel-arrow-overlay");
-    totalSlides = track?.children?.length || 0;
+    realSlides = track?.children?.length || 0;
 
-    // Start auto-advance slideshow
-    if (totalSlides > 1) {
+    if (!track || realSlides === 0) return;
+
+    // Enable seamless loop when we have more than 1 slide
+    if (realSlides > 1) {
+      enableSeamlessLoop();
       resetAutoAdvance();
+    } else {
+      // Single slide: keep index at 0
+      setIndex(0, false);
     }
 
     // Wire up arrows
@@ -132,22 +143,73 @@ const SLIDESHOW_SPEED = 5000;
     window.addEventListener("resize", updateOverlay);
   }
 
-  function setSlide(index) {
-    if (!track || totalSlides === 0) return;
-    currentSlide = (index + totalSlides) % totalSlides;
-    track.style.transform = `translateX(-${currentSlide * 100}%)`;
+  function enableSeamlessLoop() {
+    if (!track) return;
+    // Clone first and last slides to the ends
+    const firstClone = track.children[0]?.cloneNode(true);
+    const lastClone = track.children[realSlides - 1]?.cloneNode(true);
+    if (firstClone) track.appendChild(firstClone);
+    if (lastClone) track.insertBefore(lastClone, track.firstChild);
+    loopEnabled = true;
+
+    // Start at the first real slide (index 1 because of the leading clone)
+    setIndex(1, false);
+
+    // When the transition ends at a clone, jump instantly to the corresponding real slide
+    track.addEventListener("transitionend", (evt) => {
+      if (!loopEnabled || evt?.propertyName !== "transform") return;
+      isAnimating = false;
+      if (currentIndex === 0) {
+        jumpSilently(realSlides);
+      } else if (currentIndex === realSlides + 1) {
+        jumpSilently(1);
+      }
+    });
+  }
+
+  function setIndex(index, animate = true) {
+    if (!track) return;
+    // Clamp to valid bounds to avoid overshooting into blank space
+    if (loopEnabled) {
+      const minIndex = 0;
+      const maxIndex = realSlides + 1;
+      currentIndex = Math.max(minIndex, Math.min(index, maxIndex));
+    } else {
+      const minIndex = 0;
+      const maxIndex = Math.max(0, realSlides - 1);
+      currentIndex = Math.max(minIndex, Math.min(index, maxIndex));
+    }
+    if (!animate) {
+      track.style.transition = "none";
+    }
+    if (animate) {
+      isAnimating = true;
+    }
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+    if (!animate) {
+      // Force reflow, then restore transition
+      void track.offsetWidth;
+      track.style.transition = "";
+    }
     updateOverlay();
   }
 
+  function jumpSilently(index) {
+    setIndex(index, false);
+  }
+
   function step(delta) {
-    setSlide(currentSlide + delta);
+    if (!loopEnabled) {
+      // Finite mode (<=1 slide): nothing to do or clamp
+      return;
+    }
+    setIndex(currentIndex + delta, true);
   }
 
   function updateOverlay() {
     try {
       if (!container || !overlay) return;
-      // Use the current slide's image area to determine overlay position/size
-      const slide = track?.children?.[currentSlide];
+      const slide = track?.children?.[currentIndex];
       const aspect = slide?.querySelector?.(".aspect-video");
       if (!aspect) return;
       const containerRect = container.getBoundingClientRect();
@@ -162,6 +224,7 @@ const SLIDESHOW_SPEED = 5000;
   }
 
   function autoTick() {
+    if (isAnimating) return;
     if (performance.now() - lastManualAt < 250) return;
     step(1);
   }
