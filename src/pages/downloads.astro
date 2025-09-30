@@ -1,0 +1,225 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import DownloadsCard from "../components/downloads/DownloadsCard.astro";
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+
+import placeholderImage from "../assets/home/features/1280x720.png";
+
+const config = {
+  version: "2.8.0",
+  mmc: {
+    java8Url: "https://downloads.gtnewhorizons.com/Multi_mc_downloads/GT_New_Horizons_2.8.0_Java_8.zip",
+    java17_25Url: "https://downloads.gtnewhorizons.com/Multi_mc_downloads/GT_New_Horizons_2.8.0_Java_17-25.zip",
+    allVersionsUrl: "https://downloads.gtnewhorizons.com/Multi_mc_downloads/",
+  },
+  server: {
+    java8Url: "https://downloads.gtnewhorizons.com/ServerPacks/GT_New_Horizons_2.8.0_Server_Java_8.zip",
+    java17_25Url: "https://downloads.gtnewhorizons.com/ServerPacks/GT_New_Horizons_2.8.0_Server_Java_17-25.zip",
+    allVersionsUrl: "https://downloads.gtnewhorizons.com/ServerPacks/",
+  },
+  client: {
+    java8Url: "https://downloads.gtnewhorizons.com/ClientPacks/GT_New_Horizons_2.8.0_Client_Java_8.zip",
+    allVersionsUrl: "https://downloads.gtnewhorizons.com/ClientPacks/",
+  },
+  technicUrl: "https://www.technicpack.net/modpack/mcnewhorizons.677387",
+  curseforgeUrl: "https://www.curseforge.com/minecraft/modpacks/gt-new-horizons",
+  wikiUrl: "https://wiki.gtnewhorizons.com/wiki/Installing_and_Migrating",
+  discordUrl: "https://discord.gg/gtnh",
+};
+---
+
+<BaseLayout title="Downloads">
+  <section class="container mx-auto px-4 sm:px-6 py-8 sm:py-12">
+    <div class="text-center mb-8 sm:mb-10">
+      <h1 class="text-3xl sm:text-5xl font-bold">
+        Download <span class="text-custom-blue">GregTech: New Horizons</span>
+      </h1>
+      <p class="text-gray-300 text-lg sm:text-xl mt-2">
+        Available for many platforms and launchers. Pick your distribution below
+      </p>
+    </div>
+
+    <h2 class="text-center text-2xl sm:text-3xl font-semibold mb-4">Direct ZIP Downloads</h2>
+    <div class="grid gap-4 sm:gap-6 md:grid-cols-3 mb-10">
+      <DownloadsCard
+        title="MultiMC/Prism ZIPs"
+        links={[
+          {
+            label: `Latest (${config.version}) for Java 8`,
+            href: config.mmc.java8Url,
+            icon: "material-symbols:download-rounded",
+            external: true,
+          },
+          {
+            label: `Latest (${config.version}) for Java 17-25`,
+            href: config.mmc.java17_25Url,
+            icon: "material-symbols:download-rounded",
+            external: true,
+          },
+          {
+            label: "Previous versions and betas",
+            href: config.mmc.allVersionsUrl,
+            icon: "material-symbols:download-rounded",
+            external: true,
+          },
+        ]}
+        note="Recommended option"
+        noteIcon="mdi:check-circle"
+        noteColorClass="text-green-400"
+        variant="highlight"
+        accentColor="#05df72"
+      >
+        <div slot="image">
+          <Image
+            src={placeholderImage}
+            alt="MultiMC/Prism screenshot"
+            class="w-full h-full object-cover object-left-top block"
+          />
+        </div>
+      </DownloadsCard>
+
+      <DownloadsCard
+        title="Server ZIPs"
+        links={[
+          {
+            label: `Latest (${config.version}) for Java 8`,
+            href: config.server.java8Url,
+            icon: "material-symbols:download-rounded",
+            external: true,
+          },
+          {
+            label: `Latest (${config.version}) for Java 17-25`,
+            href: config.server.java17_25Url,
+            icon: "material-symbols:download-rounded",
+            external: true,
+          },
+          {
+            label: "Previous versions and betas",
+            href: config.server.allVersionsUrl,
+            icon: "material-symbols:download-rounded",
+            external: true,
+          },
+        ]}
+        variant="solid"
+      >
+        <div slot="image">
+          <Image
+            src={placeholderImage}
+            alt="Server screenshot"
+            class="w-full h-full object-cover object-left-top block"
+          />
+        </div>
+      </DownloadsCard>
+
+      <DownloadsCard
+        title="Client ZIPs"
+        links={[
+          {
+            label: `Latest (${config.version}) for Java 8`,
+            href: config.client.java8Url,
+            icon: "material-symbols:download-rounded",
+            external: true,
+          },
+          {
+            label: "Previous versions and betas",
+            href: config.client.allVersionsUrl,
+            icon: "material-symbols:download-rounded",
+            external: true,
+          },
+        ]}
+        note="Usage not advised, provided for advanced users."
+        noteIcon="mdi:alert-circle-outline"
+        noteColorClass="text-amber-300"
+        variant="solid"
+      >
+        <div slot="image">
+          <Image
+            src={placeholderImage}
+            alt="Client screenshot"
+            class="w-full h-full object-cover object-left-top block"
+          />
+        </div>
+      </DownloadsCard>
+    </div>
+
+    <div class="md:w-2/3">
+      <h2 class="text-center text-2xl sm:text-3xl font-semibold mb-4">Launcher Downloads</h2>
+    </div>
+    <div class="grid gap-4 sm:gap-6 md:grid-cols-3 items-start">
+      <DownloadsCard
+        title="Technic Launcher"
+        links={[{ label: "Modpack page", href: config.technicUrl, icon: "mdi:open-in-new", external: true }]}
+        note="Not recommended, provided for convenience."
+        noteIcon="mdi:alert-circle-outline"
+        noteColorClass="text-amber-300"
+        variant="outline"
+        accentColor="#1f6feb"
+      >
+        <div slot="image">
+          <Image
+            src={placeholderImage}
+            alt="Technic Launcher screenshot"
+            class="w-full h-full object-cover object-left-top block"
+          />
+        </div>
+      </DownloadsCard>
+
+      <DownloadsCard
+        title="CurseForge"
+        links={[{ label: "Modpack page", href: config.curseforgeUrl, icon: "mdi:open-in-new", external: true }]}
+        note="Not recommended, provided for convenience."
+        noteIcon="mdi:alert-circle-outline"
+        noteColorClass="text-amber-300"
+        variant="outline"
+        accentColor="#ff6a00"
+      >
+        <div slot="image">
+          <Image
+            src={placeholderImage}
+            alt="CurseForge screenshot"
+            class="w-full h-full object-cover object-left-top block"
+          />
+        </div>
+      </DownloadsCard>
+
+      <div class="h-full">
+        <div class="rounded-2xl p-4 sm:p-6 bg-[#1a1f26] border border-gray-700 h-full">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="flex items-center justify-center w-12 h-12 rounded-lg bg-[#2a3342]">
+              <Icon name="mdi:headset" class="w-7 h-7 text-custom-blue" />
+            </div>
+            <h3 class="text-xl sm:text-2xl font-semibold">Need help?</h3>
+          </div>
+
+          <div>
+            <p class="text-gray-300 text-md sm:text-lg mb-3">
+              You can check our wiki for advice on installing and migrating
+            </p>
+            <a
+              href={config.wikiUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 text-custom-blue hover:underline mb-4"
+            >
+              <Icon name="mdi:open-in-new" class="w-6 h-6" />
+              <span>Check our wiki</span>
+            </a>
+            <p class="text-gray-300 text-md sm:text-lg mb-3">
+              Generic instructions didn't help? Join our Discord and ask for help there!
+            </p>
+            <a
+              href={config.discordUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-3 bg-[#5865F2] hover:bg-[#4752C4] text-white font-medium px-4 py-2 rounded-lg"
+            >
+              <Icon name="ic:baseline-discord" class="w-6 h-6" />
+              <span>Join Discord</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

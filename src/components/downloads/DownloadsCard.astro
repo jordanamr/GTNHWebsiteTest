@@ -1,0 +1,86 @@
+---
+import { Icon } from "astro-icon/components";
+
+export interface LinkItem {
+  label: string;
+  href: string;
+  icon?: string;
+  external?: boolean;
+}
+
+export interface Props {
+  title: string;
+  links?: LinkItem[];
+  note?: string;
+  noteIcon?: string;
+  noteColorClass?: string;
+  variant?: "solid" | "outline" | "highlight";
+  accentColor?: string; // for outline/highlight borders
+}
+
+const {
+  title,
+  links = [],
+  note,
+  noteIcon,
+  noteColorClass = "text-green-400",
+  variant = "solid",
+  accentColor = "#547dde",
+} = Astro.props as Props;
+
+const isOutline = variant === "outline";
+const isHighlight = variant === "highlight";
+---
+
+<div
+  class={`relative rounded-2xl overflow-hidden p-0 h-full ${
+    isOutline
+      ? "bg-transparent border-2"
+      : isHighlight
+        ? "bg-[#1c2330] border border-[#394354]"
+        : "bg-[#1a1f26] border border-gray-700"
+  }`}
+  style={isOutline || isHighlight ? `border-color: ${accentColor};` : undefined}
+>
+  <div class="relative z-10 flex flex-col h-full p-4 sm:p-5 pb-28 sm:pb-36 md:pb-44">
+    <div class="mb-3">
+      <h3 class="text-xl sm:text-2xl font-semibold">{title}</h3>
+    </div>
+
+    {
+      links?.length > 0 && (
+        <ul class="space-y-1.5 mb-3">
+          {links.map((l) => (
+            <li>
+              <a
+                href={l.href}
+                target={l.external ? "_blank" : undefined}
+                class="inline-flex items-center gap-2 text-custom-blue hover:underline text-base sm:text-lg"
+              >
+                {l.icon && <Icon name={l.icon} class="w-6 h-6" />}
+                <span>{l.label}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+
+    {
+      note && (
+        <div class={`flex items-center gap-2 mb-3 ${noteColorClass}`}>
+          {noteIcon && <Icon name={noteIcon} class="w-5 h-5" />}
+          <span class="text-sm sm:text-base">{note}</span>
+        </div>
+      )
+    }
+    <!-- Integrated image anchored to bottom-right -->
+    <div
+      class="absolute bottom-0 right-0 z-0 pointer-events-none w-[94%] sm:w-[92%] md:w-[86%] h-28 sm:h-36 md:h-44 rounded-tl-2xl overflow-hidden"
+    >
+      <div class="image-wrap w-full h-full origin-top-left scale-110 sm:scale-110 md:scale-125">
+        <slot name="image" />
+      </div>
+    </div>
+  </div>
+</div>
