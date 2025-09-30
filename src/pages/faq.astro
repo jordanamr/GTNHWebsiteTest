@@ -1,0 +1,63 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { Icon } from "astro-icon/components";
+
+const faqs = [
+  {
+    question: "What is GregTech: New Horizons?",
+    answer:
+      "GregTech: New Horizons is a <b>hardcore, progression-heavy</b> modpack for Minecraft 1.7.10 focused on technology, exploration, and automation.",
+  },
+  {
+    question: "Which Java version should I use?",
+    answer:
+      "We recommend <b>Java 17-25</b> for current releases. If you must use legacy setups, <i>Java 8</i> builds are also available.",
+  },
+  {
+    question: "How do I install the pack?",
+    answer:
+      "Use our <b>MultiMC/Prism ZIP</b> from the Downloads page. If you're lost, step-by-step instructions are available on the wiki.",
+  },
+  {
+    question: "Where can I get help?",
+    answer: "If the wiki does not answer your question, join our Discord and ask in the support channels.",
+  },
+  {
+    question: "Lorem ipsum dolor sit amet?",
+    answer:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  },
+  {
+    question: "Lorem ipsum dolor sit amet?",
+    answer:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  },
+];
+---
+
+<BaseLayout title="FAQ">
+  <section class="container mx-auto px-4 sm:px-6 py-8 sm:py-12">
+    <div class="text-center mb-8 sm:mb-10">
+      <h1 class="text-3xl sm:text-5xl font-bold">Frequently Asked Questions</h1>
+      <p class="text-gray-300 text-lg sm:text-xl mt-2">Answers to common questions about the modpack</p>
+    </div>
+
+    <div class="mx-auto max-w-4xl space-y-4 sm:space-y-6">
+      {
+        faqs.map((faq) => (
+          <details class="group rounded-2xl bg-[#1a1f26] border border-gray-700">
+            <summary class="list-none px-4 sm:px-6 py-4 sm:py-5 flex items-center justify-between cursor-pointer select-none">
+              <span class="text-xl sm:text-2xl font-semibold">{faq.question}</span>
+              <span class="ml-4 flex-shrink-0 rounded-lg bg-[#2a3342] p-2 text-custom-blue transition-transform group-open:rotate-180">
+                <Icon name="mdi:chevron-down" class="w-6 h-6" />
+              </span>
+            </summary>
+            <div class="px-4 sm:px-6 pb-5 text-gray-300 text-md sm:text-lg leading-relaxed">
+              <div set:html={faq.answer} />
+            </div>
+          </details>
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>
