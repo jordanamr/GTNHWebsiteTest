@@ -6,6 +6,7 @@ export interface LinkItem {
   href: string;
   icon?: string;
   external?: boolean;
+  bold?: boolean;
 }
 
 export interface Props {
@@ -55,7 +56,7 @@ const isHighlight = variant === "highlight";
               <a
                 href={l.href}
                 target={l.external ? "_blank" : undefined}
-                class="inline-flex items-center gap-2 text-custom-blue hover:underline text-base sm:text-lg"
+                class={`inline-flex items-center gap-2 text-custom-blue hover:underline text-base sm:text-lg ${l.bold ? "font-bold" : ""}`}
               >
                 {l.icon && <Icon name={l.icon} class="w-6 h-6" />}
                 <span>{l.label}</span>

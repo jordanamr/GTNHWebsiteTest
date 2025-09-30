@@ -46,14 +46,15 @@ const config = {
         title="MultiMC/Prism ZIPs"
         links={[
           {
-            label: `Latest (${config.version}) for Java 8`,
-            href: config.mmc.java8Url,
-            icon: "material-symbols:download-rounded",
-            external: true,
-          },
-          {
             label: `Latest (${config.version}) for Java 17-25`,
             href: config.mmc.java17_25Url,
+            icon: "material-symbols:download-rounded",
+            external: true,
+            bold: true,
+          },
+          {
+            label: `Latest (${config.version}) for Java 8`,
+            href: config.mmc.java8Url,
             icon: "material-symbols:download-rounded",
             external: true,
           },
@@ -84,14 +85,15 @@ const config = {
         title="Server ZIPs"
         links={[
           {
-            label: `Latest (${config.version}) for Java 8`,
-            href: config.server.java8Url,
-            icon: "material-symbols:download-rounded",
-            external: true,
-          },
-          {
             label: `Latest (${config.version}) for Java 17-25`,
             href: config.server.java17_25Url,
+            icon: "material-symbols:download-rounded",
+            external: true,
+            bold: true,
+          },
+          {
+            label: `Latest (${config.version}) for Java 8`,
+            href: config.server.java8Url,
             icon: "material-symbols:download-rounded",
             external: true,
           },
@@ -115,7 +117,7 @@ const config = {
       </DownloadsCard>
 
       <DownloadsCard
-        title="Client ZIPs"
+        title="Vanilla Launcher ZIPs"
         links={[
           {
             label: `Latest (${config.version}) for Java 8`,
