@@ -1,6 +1,6 @@
 ---
 import CarouselItem from "./CarouselItem.astro";
-import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
 import { Icon } from "astro-icon/components";
 
 import image1 from "../../assets/home/carousel/1.png";
@@ -18,52 +18,58 @@ const SLIDESHOW_SPEED = 5000;
     <!-- Carousel Images -->
     <div class="carousel-track flex transition-transform duration-500 ease-in-out" id="carousel-track">
       <CarouselItem title="Amazing Build #1" author="Builder1">
-        <Image
+        <Picture
           src={image1}
           alt=""
+          widths={[368, 640, 768, 1024, 1280, 1920]}
+          sizes="(max-width: 640px) 368px, (max-width: 768px) 640px, (max-width: 1024px) 768px, 1024px"
+          formats={["webp"]}
           loading="eager"
           fetchpriority="high"
-          sizes="(max-width: 640px) 368px, (max-width: 768px) 640px, (max-width: 1024px) 768px, 1024px"
           class="w-full h-full object-cover"
         />
       </CarouselItem>
       <CarouselItem title="Amazing Build #2" author="Builder2">
-        <Image
+        <Picture
           src={image2}
           alt=""
-          loading="eager"
-          fetchpriority="high"
+          widths={[368, 640, 768, 1024, 1280, 1920]}
           sizes="(max-width: 640px) 368px, (max-width: 768px) 640px, (max-width: 1024px) 768px, 1024px"
+          formats={["webp"]}
+          loading="lazy"
           class="w-full h-full object-cover"
         />
       </CarouselItem>
       <CarouselItem title="Amazing Build #3" author="Builder3">
-        <Image
+        <Picture
           src={image3}
           alt=""
-          loading="eager"
-          fetchpriority="high"
+          widths={[368, 640, 768, 1024, 1280, 1920]}
           sizes="(max-width: 640px) 368px, (max-width: 768px) 640px, (max-width: 1024px) 768px, 1024px"
+          formats={["webp"]}
+          loading="lazy"
           class="w-full h-full object-cover"
         />
       </CarouselItem>
       <CarouselItem title="Amazing Build #4" author="Builder4">
-        <Image
+        <Picture
           src={image4}
           alt=""
-          loading="eager"
-          fetchpriority="high"
+          widths={[368, 640, 768, 1024, 1280, 1920]}
           sizes="(max-width: 640px) 368px, (max-width: 768px) 640px, (max-width: 1024px) 768px, 1024px"
+          formats={["webp"]}
+          loading="lazy"
           class="w-full h-full object-cover"
         />
       </CarouselItem>
       <CarouselItem title="Amazing Build #5" author="Builder5">
-        <Image
+        <Picture
           src={image5}
           alt=""
-          loading="eager"
-          fetchpriority="high"
+          widths={[368, 640, 768, 1024, 1280, 1920]}
           sizes="(max-width: 640px) 368px, (max-width: 768px) 640px, (max-width: 1024px) 768px, 1024px"
+          formats={["webp"]}
+          loading="lazy"
           class="w-full h-full object-cover"
         />
       </CarouselItem>
