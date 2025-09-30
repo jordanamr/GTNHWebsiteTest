@@ -32,7 +32,7 @@ const { id, icon, title, image, forceVisible = false } = Astro.props;
     <div
       class="w-full lg:w-6/10 h-64 lg:h-auto lg:my-18 bg-gray-800 border-t-1 lg:border-l-1 lg:border-t-1 lg:border-b-1 border-gray-500 rounded-bl-2xl rounded-br-2xl lg:rounded-bl-2xl lg:rounded-tl-2xl lg:rounded-br-none overflow-hidden order-2"
     >
-      <Image src={image} alt={`${title}`} class="w-full h-full object-cover" />
+      <Image src={image} alt={`${title}`} sizes="(max-width: 1024px) 100vw, 60vw" class="w-full h-full object-cover" />
     </div>
   </div>
 </div>
