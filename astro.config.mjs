@@ -13,7 +13,7 @@ export default defineConfig({
     include: {
       // Only include the icons we need for bundle optimization
       ic: ["baseline-discord"],
-      mdi: ["github"],
+      mdi: ["github", "arrow-left-bold", "arrow-right-bold"],
       "material-symbols": ["download-rounded"],
       tabler: ["scale-outline", "jump-rope", "color-picker", "trophy", "brand-discord"],
     }

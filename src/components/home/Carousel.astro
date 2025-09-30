@@ -1,6 +1,7 @@
 ---
 import CarouselItem from "./CarouselItem.astro";
 import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
 
 import image1 from "../../assets/home/carousel/1.png";
 import image2 from "../../assets/home/carousel/2.png";
@@ -32,6 +33,25 @@ const SLIDESHOW_SPEED = 5000;
         <Image src={image5} alt="" loading="eager" class="w-full h-full object-cover" />
       </CarouselItem>
     </div>
+    <!-- Arrow overlay positioned over the image area -->
+    <div id="carousel-arrow-overlay" class="pointer-events-none absolute inset-x-0 z-10" style="top:0;height:0;">
+      <div class="h-full flex items-center justify-between px-2 sm:px-3 md:px-4">
+        <button
+          id="carousel-prev"
+          aria-label="Previous slide"
+          class="pointer-events-auto cursor-pointer select-none rounded-full bg-black/40 hover:bg-black/60 text-white backdrop-blur p-1 sm:p-2 md:p-3 shadow focus:outline-none focus:ring-2 focus:ring-white/60"
+        >
+          <Icon name="mdi:arrow-left-bold" class="w-7 h-7 sm:w-9 sm:h-9 md:w-16 md:h-16" />
+        </button>
+        <button
+          id="carousel-next"
+          aria-label="Next slide"
+          class="pointer-events-auto cursor-pointer select-none rounded-full bg-black/40 hover:bg-black/60 text-white backdrop-blur p-1 sm:p-2 md:p-3 shadow focus:outline-none focus:ring-2 focus:ring-white/60"
+        >
+          <Icon name="mdi:arrow-right-bold" class="w-7 h-7 sm:w-9 sm:h-9 md:w-16 md:h-16" />
+        </button>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -39,28 +59,78 @@ const SLIDESHOW_SPEED = 5000;
   let currentSlide = 0;
   let totalSlides = 0;
   let track = null;
+  let container = null;
+  let overlay = null;
+  let intervalId = null;
+  let lastManualAt = 0;
 
   function initializeSlideshow() {
     track = document.getElementById("carousel-track");
-    totalSlides = document.querySelectorAll(".carousel-slide").length;
+    container = track?.closest(".carousel-container");
+    overlay = document.getElementById("carousel-arrow-overlay");
+    totalSlides = track?.children?.length || 0;
 
     // Start auto-advance slideshow
     if (totalSlides > 1) {
-      setInterval(nextSlide, SLIDESHOW_SPEED);
+      resetAutoAdvance();
+    }
+
+    // Wire up arrows
+    const prevBtn = document.getElementById("carousel-prev");
+    const nextBtn = document.getElementById("carousel-next");
+    const handleNav = (delta) => {
+      lastManualAt = performance.now();
+      step(delta);
+      resetAutoAdvance();
+    };
+    prevBtn?.addEventListener("click", () => handleNav(-1));
+    nextBtn?.addEventListener("click", () => handleNav(1));
+
+    // Keep overlay sized/positioned
+    updateOverlay();
+    window.addEventListener("resize", updateOverlay);
+  }
+
+  function setSlide(index) {
+    if (!track || totalSlides === 0) return;
+    currentSlide = (index + totalSlides) % totalSlides;
+    track.style.transform = `translateX(-${currentSlide * 100}%)`;
+    updateOverlay();
+  }
+
+  function step(delta) {
+    setSlide(currentSlide + delta);
+  }
+
+  function updateOverlay() {
+    try {
+      if (!container || !overlay) return;
+      // Use the current slide's image area to determine overlay position/size
+      const slide = track?.children?.[currentSlide];
+      const aspect = slide?.querySelector?.(".aspect-video");
+      if (!aspect) return;
+      const containerRect = container.getBoundingClientRect();
+      const rect = aspect.getBoundingClientRect();
+      const top = Math.max(0, rect.top - containerRect.top);
+      const height = rect.height;
+      overlay.style.top = `${top}px`;
+      overlay.style.height = `${height}px`;
+    } catch (_) {
+      // noop
     }
   }
 
-  function updateSlideshow() {
-    if (track && totalSlides > 0) {
-      track.style.transform = `translateX(-${currentSlide * 100}%)`;
-    }
+  function autoTick() {
+    if (performance.now() - lastManualAt < 250) return;
+    step(1);
   }
 
-  function nextSlide() {
-    if (totalSlides > 0) {
-      currentSlide = (currentSlide + 1) % totalSlides;
-      updateSlideshow();
+  function resetAutoAdvance() {
+    if (intervalId) {
+      clearInterval(intervalId);
+      intervalId = null;
     }
+    intervalId = setInterval(autoTick, SLIDESHOW_SPEED);
   }
 
   // Initialize when DOM is loaded
