@@ -1,0 +1,363 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { Icon } from "astro-icon/components";
+
+type VersionEntry = {
+  title?: string;
+  description?: string;
+  releaseDate?: string; // YYYY/MM/DD
+  maxJavaVersion?: number; // e.g., 21 or 25
+  mmc?: {
+    java8Url?: string;
+    java17_2XUrl?: string;
+  };
+  server?: {
+    java8Url?: string;
+    java17_2XUrl?: string;
+  };
+  client?: {
+    java8Url?: string;
+  };
+};
+
+// Add or edit versions below. Keys are version strings like "2.8.0".
+const versionsConfig: Record<string, VersionEntry> = {
+  "2.8.0": {
+    title: "Optional update title",
+    description: "Optional update description.",
+    releaseDate: "2025/09/27",
+    maxJavaVersion: 25,
+    mmc: {
+      java8Url: "https://downloads.gtnewhorizons.com/Multi_mc_downloads/GT_New_Horizons_2.8.0_Java_8.zip",
+      java17_2XUrl: "https://downloads.gtnewhorizons.com/Multi_mc_downloads/GT_New_Horizons_2.8.0_Java_17-25.zip",
+    },
+    server: {
+      java8Url: "https://downloads.gtnewhorizons.com/ServerPacks/GT_New_Horizons_2.8.0_Server_Java_8.zip",
+      java17_2XUrl: "https://downloads.gtnewhorizons.com/ServerPacks/GT_New_Horizons_2.8.0_Server_Java_17-25.zip",
+    },
+    client: {
+      java8Url: "https://downloads.gtnewhorizons.com/ClientPacks/GT_New_Horizons_2.8.0_Client_Java_8.zip",
+    },
+  },
+  "2.7.4": {
+    title: "Optional update title",
+    description: "Optional update description.",
+    releaseDate: "2025/04/13",
+    maxJavaVersion: 21,
+    mmc: {
+      java8Url: "https://downloads.gtnewhorizons.com/Multi_mc_downloads/GT_New_Horizons_2.7.4_Java_8.zip",
+      java17_2XUrl: "https://downloads.gtnewhorizons.com/Multi_mc_downloads/GT_New_Horizons_2.7.4_Java_17-21.zip",
+    },
+    server: {
+      java8Url: "https://downloads.gtnewhorizons.com/ServerPacks/GT_New_Horizons_2.7.4_Server_Java_8.zip",
+      java17_2XUrl: "https://downloads.gtnewhorizons.com/ServerPacks/GT_New_Horizons_2.7.4_Server_Java_17-21.zip",
+    },
+    client: {
+      java8Url: "https://downloads.gtnewhorizons.com/ClientPacks/GT_New_Horizons_2.7.4_Client_Java_8.zip",
+    },
+  },
+  "2.7.3": {
+    title: "Optional update title",
+    description: "Optional update description.",
+    releaseDate: "2025/03/02",
+    maxJavaVersion: 21,
+    mmc: {
+      java8Url: "https://downloads.gtnewhorizons.com/Multi_mc_downloads/GT_New_Horizons_2.7.3_Java_8.zip",
+      java17_2XUrl: "https://downloads.gtnewhorizons.com/Multi_mc_downloads/GT_New_Horizons_2.7.3_Java_17-21.zip",
+    },
+    server: {
+      java8Url: "https://downloads.gtnewhorizons.com/ServerPacks/GT_New_Horizons_2.7.3_Server_Java_8.zip",
+      java17_2XUrl: "https://downloads.gtnewhorizons.com/ServerPacks/GT_New_Horizons_2.7.3_Server_Java_17-21.zip",
+    },
+    client: {
+      java8Url: "https://downloads.gtnewhorizons.com/ClientPacks/GT_New_Horizons_2.7.3_Client_Java_8.zip",
+    },
+  },
+  "2.7.2": {
+    title: "Optional update title",
+    description: "Optional update description.",
+    releaseDate: "2024/12/31",
+    maxJavaVersion: 21,
+    mmc: {
+      java8Url: "https://downloads.gtnewhorizons.com/Multi_mc_downloads/GT_New_Horizons_2.7.2_Java_8.zip",
+      java17_2XUrl: "https://downloads.gtnewhorizons.com/Multi_mc_downloads/GT_New_Horizons_2.7.2_Java_17-21.zip",
+    },
+    server: {
+      java8Url: "https://downloads.gtnewhorizons.com/ServerPacks/GT_New_Horizons_2.7.2_Server_Java_8.zip",
+      java17_2XUrl: "https://downloads.gtnewhorizons.com/ServerPacks/GT_New_Horizons_2.7.2_Server_Java_17-21.zip",
+    },
+    client: {
+      java8Url: "https://downloads.gtnewhorizons.com/ClientPacks/GT_New_Horizons_2.7.2_Client_Java_8.zip",
+    },
+  },
+  "2.7.1": {
+    title: "Optional update title",
+    description: "Optional update description.",
+    releaseDate: "2024/12/20",
+    maxJavaVersion: 21,
+    mmc: {
+      java8Url: "https://downloads.gtnewhorizons.com/Multi_mc_downloads/GT_New_Horizons_2.7.1_Java_8.zip",
+      java17_2XUrl: "https://downloads.gtnewhorizons.com/Multi_mc_downloads/GT_New_Horizons_2.7.1_Java_17-21.zip",
+    },
+    server: {
+      java8Url: "https://downloads.gtnewhorizons.com/ServerPacks/GT_New_Horizons_2.7.1_Server_Java_8.zip",
+      java17_2XUrl: "https://downloads.gtnewhorizons.com/ServerPacks/GT_New_Horizons_2.7.1_Server_Java_17-21.zip",
+    },
+    client: {
+      java8Url: "https://downloads.gtnewhorizons.com/ClientPacks/GT_New_Horizons_2.7.1_Client_Java_8.zip",
+    },
+  },
+  "2.7.0": {
+    title: "Optional update title",
+    description: "Optional update description.",
+    releaseDate: "2024/12/08",
+    maxJavaVersion: 21,
+    mmc: {
+      java8Url: "https://downloads.gtnewhorizons.com/Multi_mc_downloads/GT_New_Horizons_2.7.0_Java_8.zip",
+      java17_2XUrl: "https://downloads.gtnewhorizons.com/Multi_mc_downloads/GT_New_Horizons_2.7.0_Java_17-21.zip",
+    },
+    server: {
+      java8Url: "https://downloads.gtnewhorizons.com/ServerPacks/GT_New_Horizons_2.7.0_Server_Java_8.zip",
+      java17_2XUrl: "https://downloads.gtnewhorizons.com/ServerPacks/GT_New_Horizons_2.7.0_Server_Java_17-21.zip",
+    },
+    client: {
+      java8Url: "https://downloads.gtnewhorizons.com/ClientPacks/GT_New_Horizons_2.7.0_Client_Java_8.zip",
+    },
+  },
+  "2.6.1": {
+    title: "Optional update title",
+    description: "Optional update description.",
+    releaseDate: "2024/05/21",
+    maxJavaVersion: 21,
+    mmc: {
+      java8Url: "https://downloads.gtnewhorizons.com/Multi_mc_downloads/GT_New_Horizons_2.6.1_Java_8.zip",
+      java17_2XUrl: "https://downloads.gtnewhorizons.com/Multi_mc_downloads/GT_New_Horizons_2.6.1_Java_17-21.zip",
+    },
+    server: {
+      java8Url: "https://downloads.gtnewhorizons.com/ServerPacks/GT_New_Horizons_2.6.1_Server_Java_8.zip",
+      java17_2XUrl: "https://downloads.gtnewhorizons.com/ServerPacks/GT_New_Horizons_2.6.1_Server_Java_17-21.zip",
+    },
+    client: {
+      java8Url: "https://downloads.gtnewhorizons.com/ClientPacks/GT_New_Horizons_2.6.1_Client_Java_8.zip",
+    },
+  },
+  "2.6.0": {
+    title: "Optional update title",
+    description: "Optional update description.",
+    releaseDate: "2024/04/28",
+    maxJavaVersion: 21,
+    mmc: {
+      java8Url: "https://downloads.gtnewhorizons.com/Multi_mc_downloads/GT_New_Horizons_2.6.0_Java_8.zip",
+      java17_2XUrl: "https://downloads.gtnewhorizons.com/Multi_mc_downloads/GT_New_Horizons_2.6.0_Java_17-21.zip",
+    },
+    server: {
+      java8Url: "https://downloads.gtnewhorizons.com/ServerPacks/GT_New_Horizons_2.6.0_Server_Java_8.zip",
+      java17_2XUrl: "https://downloads.gtnewhorizons.com/ServerPacks/GT_New_Horizons_2.6.0_Server_Java_17-21.zip",
+    },
+    client: {
+      java8Url: "https://downloads.gtnewhorizons.com/ClientPacks/GT_New_Horizons_2.6.0_Client_Java_8.zip",
+    },
+  },
+  "2.5.1": {
+    title: "Optional update title",
+    description: "Optional update description.",
+    releaseDate: "2023/12/20",
+    maxJavaVersion: 21,
+    mmc: {
+      java8Url: "https://downloads.gtnewhorizons.com/Multi_mc_downloads/GT_New_Horizons_2.5.1_Java_8.zip",
+      java17_2XUrl: "https://downloads.gtnewhorizons.com/Multi_mc_downloads/GT_New_Horizons_2.5.1_Java_17-21.zip",
+    },
+    server: {
+      java8Url: "https://downloads.gtnewhorizons.com/ServerPacks/GT_New_Horizons_2.5.1_Server_Java_8.zip",
+      java17_2XUrl: "https://downloads.gtnewhorizons.com/ServerPacks/GT_New_Horizons_2.5.1_Server_Java_17-21.zip",
+    },
+    client: {
+      java8Url: "https://downloads.gtnewhorizons.com/ClientPacks/GT_New_Horizons_2.5.1_Client_Java_8.zip",
+    },
+  },
+  "2.5.0": {
+    title: "Optional update title",
+    description: "Optional update description.",
+    releaseDate: "2023/12/17",
+    maxJavaVersion: 21,
+    mmc: {
+      java8Url: "https://downloads.gtnewhorizons.com/Multi_mc_downloads/GT_New_Horizons_2.5.0_Java_8.zip",
+      java17_2XUrl: "https://downloads.gtnewhorizons.com/Multi_mc_downloads/GT_New_Horizons_2.5.0_Java_17-21.zip",
+    },
+    server: {
+      java8Url: "https://downloads.gtnewhorizons.com/ServerPacks/GT_New_Horizons_2.5.0_Server_Java_8.zip",
+      java17_2XUrl: "https://downloads.gtnewhorizons.com/ServerPacks/GT_New_Horizons_2.5.0_Server_Java_17-21.zip",
+    },
+    client: {
+      java8Url: "https://downloads.gtnewhorizons.com/ClientPacks/GT_New_Horizons_2.5.0_Client_Java_8.zip",
+    },
+  },
+};
+
+function compareVersionsDesc(a: string, b: string): number {
+  const pa = a.split(".").map((n) => parseInt(n, 10));
+  const pb = b.split(".").map((n) => parseInt(n, 10));
+  const maxLen = Math.max(pa.length, pb.length);
+  for (let i = 0; i < maxLen; i++) {
+    const da = pa[i] ?? 0;
+    const db = pb[i] ?? 0;
+    if (da !== db) return db - da; // larger version first
+  }
+  return 0;
+}
+
+const sortedVersions = Object.keys(versionsConfig).sort(compareVersionsDesc);
+const getJavaRangeLabel = (v?: VersionEntry) => `Java 17-${v?.maxJavaVersion ?? 25}`;
+---
+
+<BaseLayout title="Version History">
+  <section class="container mx-auto px-4 sm:px-6 py-8 sm:py-12">
+    <div class="text-center mb-8 sm:mb-10">
+      <h1 class="text-3xl sm:text-5xl font-bold">Version History</h1>
+      <p class="text-gray-300 text-lg sm:text-xl mt-2">Browse past releases and their downloads</p>
+    </div>
+
+    {
+      sortedVersions.length === 0 ? (
+        <div class="mx-auto max-w-3xl rounded-2xl bg-[#1a1f26] border border-gray-700 p-6 text-center">
+          <p class="text-gray-300 text-lg">No versions available yet.</p>
+        </div>
+      ) : (
+        <div class="mx-auto max-w-4xl space-y-4 sm:space-y-6">
+          {sortedVersions.map((version) => {
+            const v = versionsConfig[version];
+            return (
+              <details class="group rounded-2xl bg-[#1a1f26] border border-gray-700">
+                <summary class="list-none px-4 sm:px-6 py-4 sm:py-5 flex items-center justify-between cursor-pointer select-none">
+                  <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
+                    <span class="text-xl sm:text-2xl font-semibold">v{version}</span>
+                    {v?.title && <span class="text-gray-300 text-md sm:text-lg">{v.title}</span>}
+                  </div>
+                  <div class="flex items-center gap-3">
+                    {v?.releaseDate && (
+                      <span class="inline-flex items-center gap-2 rounded-lg bg-[#2a3342] px-3 py-1 text-sm text-gray-200">
+                        <Icon name="mdi:calendar" class="w-4 h-4 text-custom-blue" />
+                        <span>{v.releaseDate}</span>
+                      </span>
+                    )}
+                    <span class="ml-2 sm:ml-4 flex-shrink-0 rounded-lg bg-[#2a3342] p-2 text-custom-blue transition-transform group-open:rotate-180">
+                      <Icon name="mdi:chevron-down" class="w-6 h-6" />
+                    </span>
+                  </div>
+                </summary>
+
+                <div class="px-4 sm:px-6 pb-5 text-gray-300 text-md sm:text-lg leading-relaxed">
+                  {v?.description && <p class="mb-5 text-gray-300">{v.description}</p>}
+
+                  <div class="grid gap-4 sm:gap-6 md:grid-cols-3">
+                    {/* MMC / Prism */}
+                    <div class="rounded-2xl p-4 sm:p-6 bg-[#1a1f26] border border-gray-700">
+                      <div class="flex items-center gap-3 mb-3">
+                        <div class="flex items-center justify-center w-12 h-12 rounded-lg bg-[#2a3342]">
+                          <Icon name="material-symbols:folder-zip-outline" class="w-7 h-7 text-custom-blue" />
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-semibold">MultiMC/Prism ZIPs</h3>
+                      </div>
+                      <div class="flex flex-col gap-3">
+                        {v?.mmc?.java17_2XUrl && (
+                          <a
+                            href={v.mmc.java17_2XUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center justify-between gap-3 rounded-lg bg-[#2a3342] hover:bg-[#364259] text-white px-4 py-2"
+                          >
+                            <span class="inline-flex items-center gap-2">
+                              <Icon name="material-symbols:download-rounded" class="w-6 h-6" />
+                              <span>{getJavaRangeLabel(v)} ZIP</span>
+                            </span>
+                          </a>
+                        )}
+                        {v?.mmc?.java8Url && (
+                          <a
+                            href={v.mmc.java8Url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 rounded-lg bg-[#2a3342] hover:bg-[#364259] text-white px-4 py-2"
+                          >
+                            <Icon name="material-symbols:download-rounded" class="w-6 h-6" />
+                            <span>Java 8 ZIP</span>
+                          </a>
+                        )}
+                        {!v?.mmc?.java17_2XUrl && !v?.mmc?.java8Url && (
+                          <p class="text-sm text-gray-400">No MMC downloads for this version.</p>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Server */}
+                    <div class="rounded-2xl p-4 sm:p-6 bg-[#1a1f26] border border-gray-700">
+                      <div class="flex items-center gap-3 mb-3">
+                        <div class="flex items-center justify-center w-12 h-12 rounded-lg bg-[#2a3342]">
+                          <Icon name="mdi:server" class="w-7 h-7 text-custom-blue" />
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-semibold">Server ZIPs</h3>
+                      </div>
+                      <div class="flex flex-col gap-3">
+                        {v?.server?.java17_2XUrl && (
+                          <a
+                            href={v.server.java17_2XUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 rounded-lg bg-[#2a3342] hover:bg-[#364259] text-white px-4 py-2"
+                          >
+                            <Icon name="material-symbols:download-rounded" class="w-6 h-6" />
+                            <span>{getJavaRangeLabel(v)} ZIP</span>
+                          </a>
+                        )}
+                        {v?.server?.java8Url && (
+                          <a
+                            href={v.server.java8Url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 rounded-lg bg-[#2a3342] hover:bg-[#364259] text-white px-4 py-2"
+                          >
+                            <Icon name="material-symbols:download-rounded" class="w-6 h-6" />
+                            <span>Java 8 ZIP</span>
+                          </a>
+                        )}
+                        {!v?.server?.java17_2XUrl && !v?.server?.java8Url && (
+                          <p class="text-sm text-gray-400">No server downloads for this version.</p>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Client */}
+                    <div class="rounded-2xl p-4 sm:p-6 bg-[#1a1f26] border border-gray-700">
+                      <div class="flex items-center gap-3 mb-3">
+                        <div class="flex items-center justify-center w-12 h-12 rounded-lg bg-[#2a3342]">
+                          <Icon name="mdi:laptop" class="w-7 h-7 text-custom-blue" />
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-semibold">Vanilla Launcher ZIP</h3>
+                      </div>
+                      <div class="flex flex-col gap-3">
+                        {v?.client?.java8Url && (
+                          <a
+                            href={v.client.java8Url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 rounded-lg bg-[#2a3342] hover:bg-[#364259] text-white px-4 py-2"
+                          >
+                            <Icon name="material-symbols:download-rounded" class="w-6 h-6" />
+                            <span>Java 8 ZIP</span>
+                          </a>
+                        )}
+                        {!v?.client?.java8Url && (
+                          <p class="text-sm text-gray-400">No vanilla client ZIP for this version.</p>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            );
+          })}
+        </div>
+      )
+    }
+  </section>
+</BaseLayout>
