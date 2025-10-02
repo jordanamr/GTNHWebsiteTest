@@ -3,6 +3,7 @@ import { Icon } from "astro-icon/components";
 import FeatureTabButton from "./FeatureTabButton.astro";
 import FeatureTabContent from "./FeatureTabContent.astro";
 
+import stoneAgeImage from "../../assets/home/ages/stone.png";
 import imageScale from "../../assets/home/features/scale.png";
 import imageTechnical from "../../assets/home/features/technical.png";
 import imagePlaceholder from "../../assets/home/features/1280x720.png";
@@ -13,31 +14,31 @@ import imagePlaceholder from "../../assets/home/features/1280x720.png";
   <div class="hidden sm:grid sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-8" id="tab-buttons-desktop">
     <FeatureTabButton
       id="scale"
-      icon="tabler:scale-outline"
+      iconImage={stoneAgeImage}
       title="The sheer scale"
       subtitle="GTNH includes hundreds of mods with endless possibilities"
     />
     <FeatureTabButton
       id="journey"
-      icon="tabler:jump-rope"
+      iconImage={stoneAgeImage}
       title="Curated journey"
       subtitle="Hundreds of mods, each a piece of a seamless puzzle"
     />
     <FeatureTabButton
       id="refinement"
-      icon="tabler:color-picker"
+      iconImage={stoneAgeImage}
       title="Constant refinement"
       subtitle="More than a decade of ongoing development by the community"
     />
     <FeatureTabButton
       id="technical"
-      icon="tabler:trophy"
+      iconImage={stoneAgeImage}
       title="Technical Excellence"
       subtitle="From custom recipes to custom mods, purpose-built for GTNH"
     />
     <FeatureTabButton
       id="community"
-      icon="tabler:brand-discord"
+      iconImage={stoneAgeImage}
       title="Vibrant Community"
       subtitle="An active player base fostering collaboration and support"
     />
@@ -50,7 +51,7 @@ import imagePlaceholder from "../../assets/home/features/1280x720.png";
         <FeatureTabButton
           as="div"
           id="scale"
-          icon="tabler:scale-outline"
+          iconImage={stoneAgeImage}
           title="The sheer scale"
           subtitle="GTNH includes hundreds of mods with endless possibilities"
         />
@@ -58,7 +59,7 @@ import imagePlaceholder from "../../assets/home/features/1280x720.png";
       <FeatureTabContent
         forceVisible={true}
         id="scale"
-        icon="tabler:scale-outline"
+        iconImage={stoneAgeImage}
         title="The sheer scale"
         image={imageScale}
       >
@@ -73,7 +74,7 @@ import imagePlaceholder from "../../assets/home/features/1280x720.png";
         <FeatureTabButton
           as="div"
           id="journey"
-          icon="tabler:jump-rope"
+          iconImage={stoneAgeImage}
           title="Curated journey"
           subtitle="Hundreds of mods, each a piece of a seamless puzzle"
         />
@@ -81,7 +82,7 @@ import imagePlaceholder from "../../assets/home/features/1280x720.png";
       <FeatureTabContent
         forceVisible={true}
         id="journey"
-        icon="tabler:jump-rope"
+        iconImage={stoneAgeImage}
         title="Curated journey"
         image={imagePlaceholder}
       >
@@ -93,7 +94,7 @@ import imagePlaceholder from "../../assets/home/features/1280x720.png";
         <FeatureTabButton
           as="div"
           id="refinement"
-          icon="tabler:color-picker"
+          iconImage={stoneAgeImage}
           title="Constant refinement"
           subtitle="More than a decade of ongoing development by the community"
         />
@@ -101,7 +102,7 @@ import imagePlaceholder from "../../assets/home/features/1280x720.png";
       <FeatureTabContent
         forceVisible={true}
         id="refinement"
-        icon="tabler:color-picker"
+        iconImage={stoneAgeImage}
         title="Constant refinement"
         image={imagePlaceholder}
       >
@@ -113,7 +114,7 @@ import imagePlaceholder from "../../assets/home/features/1280x720.png";
         <FeatureTabButton
           as="div"
           id="technical"
-          icon="tabler:trophy"
+          iconImage={stoneAgeImage}
           title="Technical Excellence"
           subtitle="From custom recipes to custom mods, purpose-built for GTNH"
         />
@@ -121,7 +122,7 @@ import imagePlaceholder from "../../assets/home/features/1280x720.png";
       <FeatureTabContent
         forceVisible={true}
         id="technical"
-        icon="tabler:trophy"
+        iconImage={stoneAgeImage}
         title="Technical Excellence"
         image={imageTechnical}
       >
@@ -153,7 +154,7 @@ import imagePlaceholder from "../../assets/home/features/1280x720.png";
         <FeatureTabButton
           as="div"
           id="community"
-          icon="tabler:brand-discord"
+          iconImage={stoneAgeImage}
           title="Vibrant Community"
           subtitle="An active player base fostering collaboration and support"
         />
@@ -161,7 +162,7 @@ import imagePlaceholder from "../../assets/home/features/1280x720.png";
       <FeatureTabContent
         forceVisible={true}
         id="community"
-        icon="tabler:brand-discord"
+        iconImage={stoneAgeImage}
         title="Vibrant Community"
         image={imagePlaceholder}
       >
@@ -172,22 +173,22 @@ import imagePlaceholder from "../../assets/home/features/1280x720.png";
 
   <!-- Big box below with all content (desktop only) -->
   <div class="bg-[#2e3338] rounded-2xl prose prose-invert max-w-none hidden sm:block" id="tab-content-desktop">
-    <FeatureTabContent id="scale" icon="tabler:scale-outline" title="The sheer scale" image={imageScale}>
+    <FeatureTabContent id="scale" iconImage={stoneAgeImage} title="The sheer scale" image={imageScale}>
       <p>
         [WIP TEXT!!!!!] GTNH includes hundreds of mods with endless possibilities. Explore vast combinations of content
         and gameplay.
       </p>
     </FeatureTabContent>
 
-    <FeatureTabContent id="journey" icon="tabler:jump-rope" title="Curated journey" image={imagePlaceholder}>
+    <FeatureTabContent id="journey" iconImage={stoneAgeImage} title="Curated journey" image={imagePlaceholder}>
       <p>[WIP TEXT!!!!!] Hundreds of mods, each carefully curated to create a seamless gameplay journey.</p>
     </FeatureTabContent>
 
-    <FeatureTabContent id="refinement" icon="tabler:color-picker" title="Constant refinement" image={imagePlaceholder}>
+    <FeatureTabContent id="refinement" iconImage={stoneAgeImage} title="Constant refinement" image={imagePlaceholder}>
       <p>[WIP TEXT!!!!!] Over a decade of community-driven improvements keeps the experience fresh.</p>
     </FeatureTabContent>
 
-    <FeatureTabContent id="technical" icon="tabler:trophy" title="Technical Excellence" image={imageTechnical}>
+    <FeatureTabContent id="technical" iconImage={stoneAgeImage} title="Technical Excellence" image={imageTechnical}>
       <p>
         GTNH isn't a bunch of JARs dumped into /mods, it's a grand project with deliberate vision that doesn't limit
         itself to off-the-shelf solutions.
@@ -211,7 +212,7 @@ import imagePlaceholder from "../../assets/home/features/1280x720.png";
       </div>
     </FeatureTabContent>
 
-    <FeatureTabContent id="community" icon="tabler:brand-discord" title="Vibrant Community" image={imagePlaceholder}>
+    <FeatureTabContent id="community" iconImage={stoneAgeImage} title="Vibrant Community" image={imagePlaceholder}>
       <p>[WIP TEXT!!!!!] An active, friendly player base fosters collaboration and support.</p>
     </FeatureTabContent>
   </div>
