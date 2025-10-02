@@ -1,0 +1,72 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  id: string;
+}
+
+const { id } = Astro.props;
+---
+
+{
+  id === "scale" && (
+    <>
+      <p>
+        [WIP TEXT!!!!!] GTNH includes hundreds of mods with endless possibilities. Explore vast combinations of content
+        and gameplay.
+      </p>
+    </>
+  )
+}
+
+{
+  id === "journey" && (
+    <>
+      <p>[WIP TEXT!!!!!] Hundreds of mods, each carefully curated to create a seamless gameplay journey.</p>
+    </>
+  )
+}
+
+{
+  id === "refinement" && (
+    <>
+      <p>[WIP TEXT!!!!!] Over a decade of community-driven improvements keeps the experience fresh.</p>
+    </>
+  )
+}
+
+{
+  id === "technical" && (
+    <>
+      <p>
+        GTNH isn't a bunch of JARs dumped into /mods, it's a grand project with deliberate vision that doesn't limit
+        itself to off-the-shelf solutions.
+      </p>
+      <br />
+      <p>We develop and maintain:</p>
+      <ul class="list-disc ml-10">
+        <li>Dozens of forks of popular mods</li>
+        <li>Many exclusive mods, made for GTNH from the ground up</li>
+        <li>Resource packs, shader packs, localizations and more!</li>
+      </ul>
+      <div class="mt-8">
+        <a
+          href="https://github.com/GTNewHorizons"
+          target="_blank"
+          class="inline-flex items-center gap-3 bg-white text-black px-6 py-3 rounded-2xl text-2xl font-semibold hover:bg-gray-300 transition-colors"
+        >
+          <Icon name="mdi:github" class="w-10 h-10" />
+          Our Github
+        </a>
+      </div>
+    </>
+  )
+}
+
+{
+  id === "community" && (
+    <>
+      <p>[WIP TEXT!!!!!] An active, friendly player base fosters collaboration and support.</p>
+    </>
+  )
+}
