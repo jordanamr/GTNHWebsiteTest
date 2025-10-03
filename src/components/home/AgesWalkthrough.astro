@@ -17,6 +17,12 @@ import screenshot2 from "../../assets/home/carousel/2.png";
 import screenshot3 from "../../assets/home/carousel/3.png";
 import screenshot4 from "../../assets/home/carousel/4.png";
 import screenshot5 from "../../assets/home/carousel/5.png";
+
+import screenshotStoneAge from "../../assets/home/ages/screens/stone_age.png";
+import screenshotSteamAge from "../../assets/home/ages/screens/steam_age.png";
+
+import challengeExploration from "../../assets/home/ages/challenge_icons/stone_age/exploration.png";
+import challengeSurvival from "../../assets/home/ages/challenge_icons/stone_age/survival.png";
 ---
 
 <section class="container mx-auto px-6 sm:py-14">
@@ -44,27 +50,35 @@ import screenshot5 from "../../assets/home/carousel/5.png";
     </ul>
   </div>
 
-  <AgePanel id="panel-stone" title="Stone Age" quests={40} image={screenshot1} caption="Stone" author="Author 1" active>
+  <AgePanel id="panel-stone" title="Stone Age" quests={137} image={screenshotStoneAge} caption="Mountain" author="iLex">
     <div slot="lead">
       <p class="text-gray-300 mb-4 text-lg sm:text-xl lg:text-2xl">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer volutpat mauris a sem feugiat, ac efficitur
-        sapien rhoncus.
+        Explore the unique GTNH world generation and survive the early game challenges long enough to progress out of
+        here.
       </p>
     </div>
     <div slot="more">
       <p class="text-gray-300 mb-8 text-lg sm:text-xl lg:text-2xl">
-        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer ut
-        vestibulum justo.
+        Dark and harsh nights, various intimidating infernal monsters and a precary food situation awaits you. Only one
+        way out of here mining the necessary for bronze steam boilers !
       </p>
     </div>
-    <ChallengeCard slot="challenges" imageIcon={stoneAgeImage} title="Mining">Lorem ipsum dolor sit amet.</ChallengeCard
+    <ChallengeCard slot="challenges" imageIcon={challengeExploration} title="Exploration"
+      >A special ore generation accompanied with an overworld filled with goodies</ChallengeCard
     >
-    <ChallengeCard slot="challenges" imageIcon={stoneAgeImage} title="Survival"
-      >Consectetur adipiscing elit.</ChallengeCard
+    <ChallengeCard slot="challenges" imageIcon={challengeSurvival} title="Survival"
+      >A horde of Infernal monsters while you are at your most vulnerable</ChallengeCard
     >
   </AgePanel>
 
-  <AgePanel id="panel-steam" title="Steam Age" quests={65} image={screenshot2} caption="Steam" author="Author 2">
+  <AgePanel
+    id="panel-steam"
+    title="Steam Age"
+    quests={65}
+    image={screenshotSteamAge}
+    caption="Steam engineering"
+    author="Li Muli"
+  >
     <div slot="lead">
       <p class="text-gray-300 mb-4 text-lg sm:text-xl lg:text-2xl">
         Lorem ipsum dolor sit amet, consectetur. Integer id velit lacinia, porta nibh a, pulvinar nisl.
@@ -82,7 +96,7 @@ import screenshot5 from "../../assets/home/carousel/5.png";
     >
   </AgePanel>
 
-  <AgePanel id="panel-lv" title="Low Voltage (LV)" quests={100} image={screenshot3} caption="LV" author="Author 3">
+  <AgePanel id="panel-lv" title="Low Voltage (LV)" quests={100} image={screenshot3} caption="LV">
     <div slot="lead">
       <p class="text-gray-300 mb-4 text-lg sm:text-xl lg:text-2xl">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse non sapien id risus faucibus consequat.
@@ -99,7 +113,7 @@ import screenshot5 from "../../assets/home/carousel/5.png";
     >
   </AgePanel>
 
-  <AgePanel id="panel-mv" title="Medium Voltage (MV)" quests={146} image={screenshot4} caption="MV" author="Author 4">
+  <AgePanel id="panel-mv" title="Medium Voltage (MV)" quests={146} image={screenshot4} caption="MV" active>
     <div slot="lead">
       <p class="text-gray-300 mb-4 text-lg sm:text-xl lg:text-2xl">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer volutpat, velit in hendrerit consectetur,
@@ -118,7 +132,7 @@ import screenshot5 from "../../assets/home/carousel/5.png";
     >
   </AgePanel>
 
-  <AgePanel id="panel-hv" title="High Voltage (HV)" quests={160} image={screenshot5} caption="HV" author="Author 5">
+  <AgePanel id="panel-hv" title="High Voltage (HV)" quests={160} image={screenshot5} caption="HV">
     <div slot="lead">
       <p class="text-gray-300 mb-4 text-lg sm:text-xl lg:text-2xl">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -135,7 +149,7 @@ import screenshot5 from "../../assets/home/carousel/5.png";
     >
   </AgePanel>
 
-  <AgePanel id="panel-ev" title="Extreme Voltage (EV)" quests={180} image={screenshot1} caption="EV" author="Author 6">
+  <AgePanel id="panel-ev" title="Extreme Voltage (EV)" quests={180} image={screenshot1} caption="EV">
     <div slot="lead">
       <p class="text-gray-300 mb-4 text-lg sm:text-xl lg:text-2xl">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -151,7 +165,7 @@ import screenshot5 from "../../assets/home/carousel/5.png";
     >
   </AgePanel>
 
-  <AgePanel id="panel-iv" title="Insane Voltage (IV)" quests={200} image={screenshot2} caption="IV" author="Author 7">
+  <AgePanel id="panel-iv" title="Insane Voltage (IV)" quests={200} image={screenshot2} caption="IV">
     <div slot="lead">
       <p class="text-gray-300 mb-4 text-lg sm:text-xl lg:text-2xl">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -170,14 +184,7 @@ import screenshot5 from "../../assets/home/carousel/5.png";
     >
   </AgePanel>
 
-  <AgePanel
-    id="panel-luv"
-    title="Ludicrous Voltage (LuV)"
-    quests={220}
-    image={screenshot3}
-    caption="LuV"
-    author="Author 8"
-  >
+  <AgePanel id="panel-luv" title="Ludicrous Voltage (LuV)" quests={220} image={screenshot3} caption="LuV">
     <div slot="lead">
       <p class="text-gray-300 mb-4 text-lg sm:text-xl lg:text-2xl">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -192,14 +199,7 @@ import screenshot5 from "../../assets/home/carousel/5.png";
     <ChallengeCard slot="challenges" imageIcon={luvAgeImage} title="Grid">Consectetur adipiscing elit.</ChallengeCard>
   </AgePanel>
 
-  <AgePanel
-    id="panel-beyond"
-    title="...and beyond!"
-    quests={240}
-    image={screenshot4}
-    caption="Beyond"
-    author="Author 9"
-  >
+  <AgePanel id="panel-beyond" title="...and beyond!" quests={240} image={screenshot4} caption="Beyond">
     <div slot="lead">
       <p class="text-gray-300 mb-4 text-lg sm:text-xl lg:text-2xl">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
