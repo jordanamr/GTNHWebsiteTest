@@ -1,14 +1,13 @@
 ---
 import { Image } from "astro:assets";
 
-const { id, title, quests, hours, image, caption = "Screenshot", active = false } = Astro.props;
+const { id, title, quests, image, caption = "Screenshot", active = false } = Astro.props;
 ---
 
 <div id={id} class={`age-panel grid grid-cols-1 lg:grid-cols-2 gap-10 mt-12 ${active ? "" : "hidden"}`}>
   <div>
     <div class="flex items-baseline justify-between text-gray-400 mb-4 text-md sm:text-lg">
       <div><span class="text-gray-300 font-semibold">{quests}</span> quests</div>
-      <div class="text-right"><span class="text-gray-300 font-semibold">{hours}</span> hours of gameplay</div>
     </div>
 
     <h3 class="text-2xl lg:text-4xl font-bold mb-3">{title}</h3>
