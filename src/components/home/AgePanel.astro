@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 
-const { id, title, quests, image, caption = "Screenshot", active = false } = Astro.props;
+const { id, title, quests, image, caption = "Screenshot", author = "Someone", active = false } = Astro.props;
 ---
 
 <div id={id} class={`age-panel grid grid-cols-1 lg:grid-cols-2 gap-10 mt-12 ${active ? "" : "hidden"}`}>
@@ -30,7 +30,7 @@ const { id, title, quests, image, caption = "Screenshot", active = false } = Ast
     </div>
     <div class="flex items-center justify-center text-center gap-2 text-md sm:text-xl md:text-2xl">
       <p class="text-white font-bold">{caption}</p>
-      <p class="text-gray-300">by Ahti</p>
+      <p class="text-gray-300">by {author}</p>
     </div>
   </div>
 </div>
