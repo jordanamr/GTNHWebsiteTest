@@ -194,19 +194,11 @@ const versionsConfig: Record<string, VersionEntry> = {
   },
 };
 
-function compareVersionsDesc(a: string, b: string): number {
-  const pa = a.split(".").map((n) => parseInt(n, 10));
-  const pb = b.split(".").map((n) => parseInt(n, 10));
-  const maxLen = Math.max(pa.length, pb.length);
-  for (let i = 0; i < maxLen; i++) {
-    const da = pa[i] ?? 0;
-    const db = pb[i] ?? 0;
-    if (da !== db) return db - da; // larger version first
-  }
-  return 0;
-}
-
-const sortedVersions = Object.keys(versionsConfig).sort(compareVersionsDesc);
+const sortedVersions = Object.entries(versionsConfig).sort((a, b) => {
+  const da = a[1].releaseDate ?? "";
+  const db = b[1].releaseDate ?? "";
+  return db.localeCompare(da); // newest first
+});
 const getJavaRangeLabel = (v?: VersionEntry) => `Java 17-${v?.maxJavaVersion ?? 25}`;
 ---
 
@@ -224,13 +216,12 @@ const getJavaRangeLabel = (v?: VersionEntry) => `Java 17-${v?.maxJavaVersion ?? 
         </div>
       ) : (
         <div class="mx-auto max-w-4xl space-y-4 sm:space-y-6">
-          {sortedVersions.map((version) => {
-            const v = versionsConfig[version];
+          {sortedVersions.map(([version, v]) => {
             return (
               <details class="group rounded-2xl bg-[#1a1f26] border border-gray-700">
                 <summary class="list-none px-4 sm:px-6 py-4 sm:py-5 flex items-center justify-between cursor-pointer select-none">
                   <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
-                    <span class="text-xl sm:text-2xl font-semibold">v{version}</span>
+                    <span class="text-xl sm:text-2xl font-semibold">{version}</span>
                     {v?.title && <span class="text-gray-300 text-md sm:text-lg">{v.title}</span>}
                   </div>
                   <div class="flex items-center gap-3">
@@ -247,7 +238,7 @@ const getJavaRangeLabel = (v?: VersionEntry) => `Java 17-${v?.maxJavaVersion ?? 
                 </summary>
 
                 <div class="px-4 sm:px-6 pb-5 text-gray-300 text-md sm:text-lg leading-relaxed">
-                  {v?.description && <p class="mb-5 text-gray-300">{v.description}</p>}
+                  {v?.description && <p class="mb-5 text-gray-300" set:html={v.description} />}
 
                   <div class="grid gap-4 sm:gap-6 md:grid-cols-3">
                     {/* MMC / Prism */}
