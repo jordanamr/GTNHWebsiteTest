@@ -3,12 +3,20 @@
   "editor.formatOnSave": true,
   "editor.formatOnSaveMode": "file",
   "prettier.printWidth": 120,
-  "typescript.tsserver.maxTsServerMemory": 4000,
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[astro]": {
     "editor.defaultFormatter": "astro-build.astro-vscode"
+  },
+  "files.associations": {
+    "*.css": "tailwindcss"
   },
   "files.watcherExclude": {
     "**/.git/objects/**": true,
