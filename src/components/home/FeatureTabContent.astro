@@ -14,33 +14,38 @@ const { id, iconImage, title, image, forceVisible = false } = Astro.props;
 ---
 
 <div class={`tab-content${forceVisible ? "" : " hidden"}`} data-tab={id}>
-  <div class="flex flex-col lg:flex-row h-full gap-0 lg:gap-16 border-gray-500 border-1 rounded-2xl">
-    <!-- Text content -->
-    <div class="w-full lg:w-4/10 p-6 lg:p-18 order-1">
-      <div class="hidden sm:flex items-center gap-4 mb-4">
-        <div class="icon-container w-10 sm:w-12 h-10 sm:h-12 bg-[#454c54] rounded-xl flex items-center justify-center">
-          <Image src={iconImage} alt="" class="w-8 sm:w-10 h-8 sm:h-10" color="#547dde" />
-        </div>
-        <h3 class="font-semibold text-xl sm:text-2xl md:text-3xl">{title}</h3>
+  <div class="border-gray-500 border-1 rounded-2xl">
+    <!-- Title section -->
+    <div class="hidden sm:flex items-center gap-4 p-6 lg:px-18 lg:pt-18 lg:pb-0">
+      <div
+        class="icon-container flex-shrink-0 w-10 sm:w-12 h-10 sm:h-12 bg-[#454c54] rounded-xl flex items-center justify-center p-1.5"
+      >
+        <Image src={iconImage} alt="" class="w-full h-full object-contain" color="#547dde" />
       </div>
-      <div class="text-md sm:text-lg md:text-xl lg:text-2xl text-gray-300">
-        <slot />
-      </div>
+      <h3 class="font-semibold text-xl sm:text-2xl md:text-3xl min-w-0">{title}</h3>
     </div>
 
-    <!-- Image content -->
-    <div
-      class="w-full lg:w-6/10 h-64 lg:h-auto lg:my-18 bg-gray-800 border-t-1 lg:border-l-1 lg:border-t-1 lg:border-b-1 border-gray-500 rounded-bl-2xl rounded-br-2xl lg:rounded-bl-2xl lg:rounded-tl-2xl lg:rounded-br-none overflow-hidden order-2"
-    >
-      <Picture
-        src={image}
-        alt={`${title}`}
-        widths={[360, 640, 960, 1280, 1440]}
-        sizes="(max-width: 640px) 360px, (max-width: 1024px) 90vw, 60vw"
-        formats={["webp"]}
-        loading="lazy"
-        class="w-full h-full object-cover"
-      />
+    <!-- Content section -->
+    <div class="flex flex-col lg:flex-row gap-0 lg:gap-16">
+      <!-- Text content -->
+      <div class="w-full lg:w-4/10 p-6 lg:px-18 lg:pb-18 lg:pt-6 order-1">
+        <div class="text-md sm:text-lg md:text-xl lg:text-2xl text-gray-300">
+          <slot />
+        </div>
+      </div>
+
+      <!-- Image content -->
+      <div class="w-full lg:w-6/10 p-6 lg:pr-0 lg:pb-18 lg:pt-6 lg:pl-0 order-2">
+        <Picture
+          src={image}
+          alt={`${title}`}
+          widths={[360, 640, 960, 1280, 1440]}
+          sizes="(max-width: 640px) 360px, (max-width: 1024px) 90vw, 60vw"
+          formats={["webp"]}
+          loading="lazy"
+          class="w-full max-h-[600px] object-contain border-1 border-gray-500 rounded-2xl"
+        />
+      </div>
     </div>
   </div>
 </div>
