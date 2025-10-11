@@ -5,44 +5,54 @@ import FeatureTabBody from "./FeatureTabBody.astro";
 
 import stoneAgeImage from "../../assets/home/ages/stone.png";
 import imageScale from "../../assets/home/features/scale.png";
+import imagePlaystyles from "../../assets/home/features/playstyles.png";
 import imageTechnical from "../../assets/home/features/technical.png";
 import imagePlaceholder from "../../assets/home/features/1280x720.png";
+import imageDiscord from "../../assets/home/features/discord.png";
+import imageQuests from "../../assets/home/features/Quests.png";
+
+import TechAdventure from "../../assets/home/features/icons/TechAdventure.png";
+import QuestIcon from "../../assets/home/features/icons/Quest Book.png";
+import PlayStylesIcon from "../../assets/home/features/icons/PlaystylesIcon.png";
+import TechnicalIcon from "../../assets/home/features/icons/TechnicalIcon.gif";
+import DiscordIcon from "../../assets/home/features/icons/community.gif";
 
 const tabs = [
   {
     id: "scale",
-    iconImage: stoneAgeImage,
-    title: "The sheer scale",
-    subtitle: "GTNH includes hundreds of mods with endless possibilities",
+    iconImage: TechAdventure,
+    title: "The Ultimate Tech Adventure",
+    subtitle: "A modpack where effort pays off, and every step matters",
     image: imageScale,
   },
   {
     id: "journey",
-    iconImage: stoneAgeImage,
+    iconImage: QuestIcon,
     title: "Curated journey",
-    subtitle: "Hundreds of mods, each a piece of a seamless puzzle",
-    image: imagePlaceholder,
+    subtitle:
+      "Hundreds of mods, each a piece of a seamless puzzle, with over 3900 quests to guide you through each of them",
+    image: imageQuests,
   },
   {
     id: "refinement",
-    iconImage: stoneAgeImage,
-    title: "Constant refinement",
-    subtitle: "More than a decade of ongoing development by the community",
-    image: imagePlaceholder,
+    iconImage: PlayStylesIcon,
+    title: "Numerous Playstyles Availiable",
+    subtitle: "Adapt your playing style as you see fit",
+    image: imagePlaystyles, // Spaghetti by Twilight Sparkles
   },
   {
     id: "technical",
-    iconImage: stoneAgeImage,
+    iconImage: TechnicalIcon,
     title: "Technical Excellence",
     subtitle: "From custom recipes to custom mods, purpose-built for GTNH",
     image: imageTechnical,
   },
   {
     id: "community",
-    iconImage: stoneAgeImage,
-    title: "Vibrant Community",
-    subtitle: "An active player base fostering collaboration and support",
-    image: imagePlaceholder,
+    iconImage: DiscordIcon, // todo: swap for the gigachad animated token
+    title: "A Technical, Supportive, and Worldwide Community",
+    subtitle: "An active playerbase fostering collaboration and support",
+    image: imageDiscord,
   },
 ];
 ---
