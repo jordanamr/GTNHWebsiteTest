@@ -57,17 +57,17 @@ const tabs = [
 ];
 ---
 
-<section class="w-full text-white px-4 py-8">
+<section class="w-full text-white px-3 py-6">
   <!-- Top clickable boxes (desktop/tablet) -->
-  <div class="hidden sm:grid sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-8" id="tab-buttons-desktop">
+  <div class="hidden sm:grid sm:grid-cols-2 lg:grid-cols-5 gap-3 mb-6" id="tab-buttons-desktop">
     {tabs.map((t) => <FeatureTabButton id={t.id} iconImage={t.iconImage} title={t.title} subtitle={t.subtitle} />)}
   </div>
 
   <!-- Mobile disclosures: each button reveals its content directly below -->
-  <div class="flex flex-col gap-4 mb-8 sm:hidden" id="tab-disclosures-mobile">
+  <div class="flex flex-col gap-3 mb-6 sm:hidden" id="tab-disclosures-mobile">
     {
       tabs.map((t, i) => (
-        <details class="disclosure flex flex-col gap-3" open={i === 0}>
+        <details class="disclosure flex flex-col gap-2" open={i === 0}>
           <summary class="list-none">
             <FeatureTabButton as="div" id={t.id} iconImage={t.iconImage} title={t.title} subtitle={t.subtitle} />
           </summary>
@@ -80,7 +80,7 @@ const tabs = [
   </div>
 
   <!-- Big box below with all content (desktop only) -->
-  <div class="bg-[#2e3338] rounded-2xl prose prose-invert max-w-none hidden sm:block" id="tab-content-desktop">
+  <div class="bg-[#2e3338] rounded-xl prose prose-invert max-w-none hidden sm:block" id="tab-content-desktop">
     {
       tabs.map((t) => (
         <FeatureTabContent id={t.id} iconImage={t.iconImage} title={t.title} image={t.image}>

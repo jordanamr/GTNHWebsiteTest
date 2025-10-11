@@ -42,19 +42,19 @@ import challengeBeyondMM from "../../assets/home/ages/challenge_icons/beyond/mm.
 import challengeBeyondStargate from "../../assets/home/ages/challenge_icons/beyond/stargate.png";
 ---
 
-<section class="container mx-auto px-6 sm:py-14">
-  <div class="text-center mb-8">
-    <h2 class="text-2xl sm:text-3xl lg:text-5xl font-bold mb-2">The Ages Walkthrough</h2>
-    <p class="text-gray-300 text-xl lg:text-2xl">
+<section class="container mx-auto px-4 sm:py-10">
+  <div class="text-center mb-6">
+    <h2 class="text-xl sm:text-2xl lg:text-4xl font-bold mb-1.5">The Ages Walkthrough</h2>
+    <p class="text-gray-300 text-lg lg:text-xl">
       Here is how hundreds of mods intertwine to create a directed, deliberate journey
     </p>
   </div>
 
-  <div class="relative mt-10 overflow-x-auto snap-x snap-mandatory pb-4" id="ages-track" data-active="stone">
-    <div class="absolute left-0 right-0 h-[14px] rounded-full bg-[#22272c] pointer-events-none z-0" id="ages-base">
+  <div class="relative mt-7 overflow-x-auto snap-x snap-mandatory pb-3" id="ages-track" data-active="stone">
+    <div class="absolute left-0 right-0 h-[10px] rounded-full bg-[#22272c] pointer-events-none z-0" id="ages-base">
     </div>
-    <div class="absolute left-0 h-[14px] rounded-full bg-[#547dde] pointer-events-none z-0" id="ages-progress"></div>
-    <ul class="relative z-10 flex flex-nowrap items-start gap-6 w-max md:w-full md:justify-between md:gap-2 px-2">
+    <div class="absolute left-0 h-[10px] rounded-full bg-[#547dde] pointer-events-none z-0" id="ages-progress"></div>
+    <ul class="relative z-10 flex flex-nowrap items-start gap-4 w-max md:w-full md:justify-between md:gap-1.5 px-1.5">
       <AgeBubble age="stone" label="Stone Age" image={stoneAgeImage} selected />
       <AgeBubble age="steam" label="Steam Age" image={steamAgeImage} />
       <AgeBubble age="lv" label="Low Voltage" image={lvAgeImage} />
@@ -69,13 +69,13 @@ import challengeBeyondStargate from "../../assets/home/ages/challenge_icons/beyo
 
   <AgePanel id="panel-stone" title="Stone Age" quests={137} image={screenshotStoneAge} caption="Mountain" author="iLex">
     <div slot="lead">
-      <p class="text-gray-300 mb-4 text-lg sm:text-xl lg:text-2xl">
+      <p class="text-gray-300 mb-3 text-base sm:text-lg lg:text-xl">
         Explore the unique GTNH world generation and survive the early game challenges long enough to progress out of
         here.
       </p>
     </div>
     <div slot="more">
-      <p class="text-gray-300 mb-8 text-lg sm:text-xl lg:text-2xl">
+      <p class="text-gray-300 mb-6 text-base sm:text-lg lg:text-xl">
         Dark and harsh nights, various intimidating infernal monsters and a precary food situation awaits you. Only one
         way out of here mining the necessary for bronze steam boilers !
       </p>
@@ -97,10 +97,10 @@ import challengeBeyondStargate from "../../assets/home/ages/challenge_icons/beyo
     author="Li Muli"
   >
     <div slot="lead">
-      <p class="text-gray-300 mb-4 text-lg sm:text-xl lg:text-2xl">Perform your own industrial revolution!</p>
+      <p class="text-gray-300 mb-3 text-base sm:text-lg lg:text-xl">Perform your own industrial revolution!</p>
     </div>
     <div slot="more">
-      <p class="text-gray-300 mb-8 text-lg sm:text-xl lg:text-2xl">
+      <p class="text-gray-300 mb-6 text-base sm:text-lg lg:text-xl">
         You will start making your first automations, ranging from coke oven to your first ore processing system. You
         will also start to have access to your first set of machines to reduce the costs of your crafts.
       </p>
@@ -122,10 +122,10 @@ import challengeBeyondStargate from "../../assets/home/ages/challenge_icons/beyo
     author="GeForceX"
   >
     <div slot="lead">
-      <p class="text-gray-300 mb-4 text-lg sm:text-xl lg:text-2xl">Your first electrical tier!</p>
+      <p class="text-gray-300 mb-4 text-base sm:text-lg lg:text-xl">Your first electrical tier!</p>
     </div>
     <div slot="more">
-      <p class="text-gray-300 mb-8 text-lg sm:text-xl lg:text-2xl">
+      <p class="text-gray-300 mb-8 text-base sm:text-lg lg:text-xl">
         In LV, you will discover how to generate electrical power as well as how to get your first eletrical machines,
         including the Electrical Blast Furnace to make steel ingots faster.
       </p>
@@ -153,10 +153,10 @@ import challengeBeyondStargate from "../../assets/home/ages/challenge_icons/beyo
     active
   >
     <div slot="lead">
-      <p class="text-gray-300 mb-4 text-lg sm:text-xl lg:text-2xl">Improve your base a little!</p>
+      <p class="text-gray-300 mb-4 text-base sm:text-lg lg:text-xl">Improve your base a little!</p>
     </div>
     <div slot="more">
-      <p class="text-gray-300 mb-8 text-lg sm:text-xl lg:text-2xl">
+      <p class="text-gray-300 mb-8 text-base sm:text-lg lg:text-xl">
         In MV, you main tasks will consist in developping reliable aluminium and silicon sources, as well as upgrading
         your EBF coils from nichrome to kanthal.
       </p>
@@ -179,10 +179,10 @@ import challengeBeyondStargate from "../../assets/home/ages/challenge_icons/beyo
     author="Ban4iko"
   >
     <div slot="lead">
-      <p class="text-gray-300 mb-4 text-lg sm:text-xl lg:text-2xl">Your first complex processing lines!</p>
+      <p class="text-gray-300 mb-4 text-base sm:text-lg lg:text-xl">Your first complex processing lines!</p>
     </div>
     <div slot="more">
-      <p class="text-gray-300 mb-8 text-lg sm:text-xl lg:text-2xl">
+      <p class="text-gray-300 mb-8 text-base sm:text-lg lg:text-xl">
         In HV, you will start many chemical processes to gather many new chemical products: PolyTetraFluoroEthylene,
         Silicon Rubber, Ammonia, Nitric Acid... It is also the last tier before you unlock AE2. You will also do your
         first spatial exploration in HV.
@@ -208,10 +208,10 @@ import challengeBeyondStargate from "../../assets/home/ages/challenge_icons/beyo
     author="Johny"
   >
     <div slot="lead">
-      <p class="text-gray-300 mb-4 text-lg sm:text-xl lg:text-2xl">AE unlocked!</p>
+      <p class="text-gray-300 mb-4 text-base sm:text-lg lg:text-xl">AE unlocked!</p>
     </div>
     <div slot="more">
-      <p class="text-gray-300 mb-8 text-lg sm:text-xl lg:text-2xl">
+      <p class="text-gray-300 mb-8 text-base sm:text-lg lg:text-xl">
         In EV, you will be able to finally get a hand on AE2 components to automate your first crafts, which cause your
         first massive base rework. Good Luck!
       </p>
@@ -235,10 +235,10 @@ import challengeBeyondStargate from "../../assets/home/ages/challenge_icons/beyo
     author="ImpossibleVT"
   >
     <div slot="lead">
-      <p class="text-gray-300 mb-4 text-lg sm:text-xl lg:text-2xl">The last tier of the early game!</p>
+      <p class="text-gray-300 mb-4 text-base sm:text-lg lg:text-xl">The last tier of the early game!</p>
     </div>
     <div slot="more">
-      <p class="text-gray-300 mb-8 text-lg sm:text-xl lg:text-2xl">
+      <p class="text-gray-300 mb-8 text-base sm:text-lg lg:text-xl">
         This is the last tier before your base takes a significant upscaling.
       </p>
     </div>
@@ -262,12 +262,12 @@ import challengeBeyondStargate from "../../assets/home/ages/challenge_icons/beyo
     author="Rubydragon, gnommis and woofdoggo"
   >
     <div slot="lead">
-      <p class="text-gray-300 mb-4 text-lg sm:text-xl lg:text-2xl">
+      <p class="text-gray-300 mb-4 text-base sm:text-lg lg:text-xl">
         Swap your single block machines for their multiblock equivalent!
       </p>
     </div>
     <div slot="more">
-      <p class="text-gray-300 mb-8 text-lg sm:text-xl lg:text-2xl">
+      <p class="text-gray-300 mb-8 text-base sm:text-lg lg:text-xl">
         In this tier you will start replacing your single blocks machines for their much faster multiblock equivalent.
         You will also face new lines, such as Naquadah and Netherite lines, and you will unlock your first fusion
         reactor.
@@ -292,10 +292,10 @@ import challengeBeyondStargate from "../../assets/home/ages/challenge_icons/beyo
     author="Semetix, Bl1nkle, Tbone, lui993 and P_A_JN"
   >
     <div slot="lead">
-      <p class="text-gray-300 mb-4 text-lg sm:text-xl lg:text-2xl">Be ready to push your base further and beyond!</p>
+      <p class="text-gray-300 mb-4 text-base sm:text-lg lg:text-xl">Be ready to push your base further and beyond!</p>
     </div>
     <div slot="more">
-      <p class="text-gray-300 mb-8 text-lg sm:text-xl lg:text-2xl">
+      <p class="text-gray-300 mb-8 text-base sm:text-lg lg:text-xl">
         Be ready to face more and more complex automations the more you progress: the waterline, the black hole
         compressor, the eye of harmony, the quark gluon plasma, and more! You will also enter in a constant race for
         faster and bigger production capabilities!

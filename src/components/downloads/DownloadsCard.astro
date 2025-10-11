@@ -34,7 +34,7 @@ const isHighlight = variant === "highlight";
 ---
 
 <div
-  class={`relative rounded-2xl overflow-hidden p-0 h-full ${
+  class={`relative rounded-xl overflow-hidden p-0 h-full ${
     isOutline
       ? "bg-transparent border-2"
       : isHighlight
@@ -43,22 +43,22 @@ const isHighlight = variant === "highlight";
   }`}
   style={isOutline || isHighlight ? `border-color: ${accentColor};` : undefined}
 >
-  <div class="relative z-10 flex flex-col h-full p-4 sm:p-5 pb-28 sm:pb-36 md:pb-44">
-    <div class="mb-3">
-      <h3 class="text-xl sm:text-2xl font-semibold">{title}</h3>
+  <div class="relative z-10 flex flex-col h-full p-3 sm:p-4 pb-21 sm:pb-27 md:pb-33">
+    <div class="mb-2">
+      <h3 class="text-lg sm:text-xl font-semibold">{title}</h3>
     </div>
 
     {
       links?.length > 0 && (
-        <ul class="space-y-1.5 mb-3">
+        <ul class="space-y-1 mb-2">
           {links.map((l) => (
             <li>
               <a
                 href={l.href}
                 target={l.external ? "_blank" : undefined}
-                class={`inline-flex items-center gap-2 text-custom-blue hover:underline text-base sm:text-lg ${l.bold ? "font-bold" : ""}`}
+                class={`inline-flex items-center gap-1.5 text-custom-blue hover:underline text-sm sm:text-base ${l.bold ? "font-bold" : ""}`}
               >
-                {l.icon && <Icon name={l.icon} class="w-6 h-6" />}
+                {l.icon && <Icon name={l.icon} class="w-5 h-5" />}
                 <span>{l.label}</span>
               </a>
             </li>
@@ -69,15 +69,15 @@ const isHighlight = variant === "highlight";
 
     {
       note && (
-        <div class={`flex items-center gap-2 mb-3 ${noteColorClass}`}>
-          {noteIcon && <Icon name={noteIcon} class="w-5 h-5" />}
-          <span class="text-md sm:text-lg">{note}</span>
+        <div class={`flex items-center gap-1.5 mb-2 ${noteColorClass}`}>
+          {noteIcon && <Icon name={noteIcon} class="w-4 h-4" />}
+          <span class="text-sm sm:text-base">{note}</span>
         </div>
       )
     }
     <!-- Integrated image anchored to bottom-right -->
     <div
-      class="absolute bottom-0 right-0 z-0 pointer-events-none w-[94%] sm:w-[92%] md:w-[86%] h-28 sm:h-36 md:h-44 rounded-tl-2xl overflow-hidden"
+      class="absolute bottom-0 right-0 z-0 pointer-events-none w-[94%] sm:w-[92%] md:w-[86%] h-21 sm:h-27 md:h-33 rounded-tl-xl overflow-hidden"
     >
       <div class="image-wrap w-full h-full origin-top-left scale-110 sm:scale-110 md:scale-125">
         <slot name="image" />

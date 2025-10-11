@@ -31,18 +31,18 @@ const config = {
 ---
 
 <BaseLayout title="Downloads">
-  <section class="container mx-auto px-4 sm:px-6 py-8 sm:py-12">
-    <div class="text-center mb-8 sm:mb-10">
-      <h1 class="text-3xl sm:text-5xl font-bold">
+  <section class="container mx-auto px-3 sm:px-4 py-6 sm:py-9">
+    <div class="text-center mb-6 sm:mb-7">
+      <h1 class="text-2xl sm:text-4xl font-bold">
         Download <span class="text-custom-blue">GregTech: New Horizons</span>
       </h1>
-      <p class="text-gray-300 text-lg sm:text-xl mt-2">
+      <p class="text-gray-300 text-base sm:text-lg mt-1.5">
         Available for many platforms and launchers. Pick your distribution below
       </p>
     </div>
 
-    <h2 class="text-center text-2xl sm:text-3xl font-semibold mb-4">Direct ZIP Downloads</h2>
-    <div class="grid gap-4 sm:gap-6 md:grid-cols-3 mb-10">
+    <h2 class="text-center text-xl sm:text-2xl font-semibold mb-3">Direct ZIP Downloads</h2>
+    <div class="grid gap-3 sm:gap-4 md:grid-cols-3 mb-7">
       <DownloadsCard
         title="MultiMC/Prism ZIPs"
         links={[
@@ -147,9 +147,9 @@ const config = {
     </div>
 
     <div class="md:w-2/3">
-      <h2 class="text-center text-2xl sm:text-3xl font-semibold mb-4">Launcher Downloads</h2>
+      <h2 class="text-center text-xl sm:text-2xl font-semibold mb-3">Launcher Downloads</h2>
     </div>
-    <div class="grid gap-4 sm:gap-6 md:grid-cols-3 items-start">
+    <div class="grid gap-3 sm:gap-4 md:grid-cols-3 items-start">
       <DownloadsCard
         title="Technic Launcher"
         links={[{ label: "Modpack page", href: config.technicUrl, icon: "mdi:open-in-new", external: true }]}
@@ -189,37 +189,37 @@ const config = {
       </DownloadsCard>
 
       <div class="h-full">
-        <div class="rounded-2xl p-4 sm:p-6 bg-[#1a1f26] border border-gray-700 h-full">
-          <div class="flex items-center gap-3 mb-3">
-            <div class="flex items-center justify-center w-12 h-12 rounded-lg bg-[#2a3342]">
-              <Icon name="mdi:headset" class="w-7 h-7 text-custom-blue" />
+        <div class="rounded-xl p-3 sm:p-4 bg-[#1a1f26] border border-gray-700 h-full">
+          <div class="flex items-center gap-2 mb-2">
+            <div class="flex items-center justify-center w-9 h-9 rounded-lg bg-[#2a3342]">
+              <Icon name="mdi:headset" class="w-5 h-5 text-custom-blue" />
             </div>
-            <h3 class="text-xl sm:text-2xl font-semibold">Need help?</h3>
+            <h3 class="text-lg sm:text-xl font-semibold">Need help?</h3>
           </div>
 
           <div>
-            <p class="text-gray-300 text-md sm:text-lg mb-3">
+            <p class="text-gray-300 text-sm sm:text-base mb-2">
               You can check our wiki for advice on installing and migrating
             </p>
             <a
               href={config.wikiUrl}
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 text-custom-blue hover:underline mb-4 text-md sm:text-lg"
+              class="inline-flex items-center gap-1.5 text-custom-blue hover:underline mb-3 text-sm sm:text-base"
             >
-              <Icon name="mdi:open-in-new" class="w-6 h-6" />
+              <Icon name="mdi:open-in-new" class="w-5 h-5" />
               <span>Check our wiki</span>
             </a>
-            <p class="text-gray-300 text-md sm:text-lg mb-3">
+            <p class="text-gray-300 text-sm sm:text-base mb-2">
               Generic instructions didn't help? Join our Discord and ask for help there!
             </p>
             <a
               href={config.discordUrl}
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center gap-3 bg-[#5865F2] hover:bg-[#4752C4] text-white font-medium px-4 py-2 rounded-lg"
+              class="inline-flex items-center gap-2 bg-[#5865F2] hover:bg-[#4752C4] text-white font-medium px-3 py-1.5 rounded-lg"
             >
-              <Icon name="ic:baseline-discord" class="w-6 h-6" />
+              <Icon name="ic:baseline-discord" class="w-5 h-5" />
               <span>Join Discord</span>
             </a>
           </div>

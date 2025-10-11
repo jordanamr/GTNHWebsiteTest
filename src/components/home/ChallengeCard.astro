@@ -4,14 +4,14 @@ import { Image } from "astro:assets";
 const { imageIcon, title = "" } = Astro.props;
 ---
 
-<div class="w-full min-w-0 h-full p-2">
-  <div class="flex items-center gap-3 mb-2">
+<div class="w-full min-w-0 h-full p-1.5">
+  <div class="flex items-center gap-2 mb-1.5">
     <div
-      class="icon-container flex-shrink-0 w-10 sm:w-12 h-10 sm:h-12 bg-[#454c54] rounded-lg flex items-center justify-center p-1.5"
+      class="icon-container flex-shrink-0 w-8 sm:w-9 h-8 sm:h-9 bg-[#454c54] rounded-lg flex items-center justify-center p-1"
     >
       <Image src={imageIcon} alt="" class="w-full h-full object-contain" />
     </div>
-    <div class="font-semibold text-xl sm:text-2xl min-w-0">{title}</div>
+    <div class="font-semibold text-lg sm:text-xl min-w-0">{title}</div>
   </div>
-  <p class="text-gray-300 text-lg sm:text-xl leading-relaxed"><slot /></p>
+  <p class="text-gray-300 text-base sm:text-lg leading-relaxed"><slot /></p>
 </div>

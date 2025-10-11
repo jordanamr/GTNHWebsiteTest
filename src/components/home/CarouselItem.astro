@@ -9,8 +9,8 @@ const { title, author } = Astro.props;
 
 <div class="carousel-slide w-full flex-shrink-0">
   <!-- Image container with double border -->
-  <div class="p-1 border border-gray-500 rounded-3xl mb-2 sm:mb-4">
-    <div class="border border-white rounded-3xl overflow-hidden">
+  <div class="p-0.5 border border-gray-500 rounded-2xl mb-1.5 sm:mb-3">
+    <div class="border border-white rounded-2xl overflow-hidden">
       <div class="aspect-video">
         <slot />
       </div>
@@ -18,7 +18,7 @@ const { title, author } = Astro.props;
   </div>
 
   <!-- Description below the image -->
-  <div class="flex items-center justify-center text-center gap-2 text-md sm:text-xl md:text-2xl">
+  <div class="flex items-center justify-center text-center gap-1.5 text-sm sm:text-lg md:text-xl">
     <p class="text-white font-bold">{title}</p>
     <p class="text-gray-300">by {author}</p>
   </div>
