@@ -44,7 +44,7 @@ const config = {
     <h2 class="text-center text-xl sm:text-2xl font-semibold mb-3">Direct ZIP Downloads</h2>
     <div class="grid gap-3 sm:gap-4 md:grid-cols-3 mb-7">
       <DownloadsCard
-        title="MultiMC/Prism ZIPs"
+        title="Prism ZIPs"
         links={[
           {
             label: `Latest (${config.version}) for Java 17-25`,
@@ -103,7 +103,11 @@ const config = {
             icon: "mdi:open-in-new",
           },
         ]}
-        variant="solid"
+        note="Recommended option"
+        noteIcon="mdi:check-circle"
+        noteColorClass="text-green-400"
+        variant="highlight"
+        accentColor="#05df72"
       >
         <div slot="image">
           <Image
@@ -156,8 +160,7 @@ const config = {
         note="Not recommended, provided for convenience."
         noteIcon="mdi:alert-circle-outline"
         noteColorClass="text-amber-300"
-        variant="outline"
-        accentColor="#1f6feb"
+        variant="solid"
       >
         <div slot="image">
           <Image
@@ -175,8 +178,7 @@ const config = {
         note="Not recommended, provided for convenience."
         noteIcon="mdi:alert-circle-outline"
         noteColorClass="text-amber-300"
-        variant="outline"
-        accentColor="#ff6a00"
+        variant="solid"
       >
         <div slot="image">
           <Image
